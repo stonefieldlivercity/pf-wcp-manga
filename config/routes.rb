@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-  get 'homes/top'
-  get 'homes/about'
   devise_for :users
 
   root to: "homes#top"
   get "/homes/about" => "homes#about", as: "about"
-
-  resources :genres
+  get "/users/mypage" => "users#show", as: "mypage"
   resources :users
+  resources :genres
   resources :books do
     resource :favorites, only: [:create, :destroy]
   end
