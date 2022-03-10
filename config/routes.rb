@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'genres/index'
+  devise_for :users, controllers: {
+    sessions: "users/session",
+    registrations: "users/registrations"
+  }
 
   root to: "homes#top"
   get "/homes/about" => "homes#about", as: "about"
