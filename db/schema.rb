@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_082630) do
+ActiveRecord::Schema.define(version: 2022_03_11_062822) do
 
   create_table "books", force: :cascade do |t|
     t.integer "user_id"
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 2022_03_07_082630) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "book_id"
+    t.float "cool"
+    t.float "cute"
+    t.float "hot"
+    t.float "relax"
+    t.float "emotion"
+    t.float "funny"
+    t.float "complex"
+    t.float "brisk"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

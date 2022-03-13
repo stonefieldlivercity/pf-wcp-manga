@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse col-xs-1 offset-xs-1 flex-column" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <% if user_signed_in? %>
-              <%= link_to 'ログアウト', destroy_user_session_path, class: 'btn mx-2 my-1' %>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn mx-2 my-1' %>
             <% else %>
               <%= link_to 'ユーザー登録', new_user_registration_path, class: 'btn mx-2 my-1' %>
               <%= link_to 'ログイン', new_user_session_path, class: 'btn mx-2 my-1' %>
@@ -28,7 +28,7 @@
           <ul>
             <% if user_signed_in? %>
               <%= link_to '作品一覧', books_path, class: 'btn mx-2 my-1' %>
-              <%= link_to 'マイページ', mypage_path, class: 'btn mx-2 my-1' %>
+              <%= link_to 'マイページ', mypage_path(current_user), class: 'btn mx-2 my-1' %>
               <%= link_to '新規投稿', new_book_path, class: 'btn mx-2 my-1' %>
             <% else %>
                <%= link_to '作品一覧', books_path, class: 'btn mx-2 my-1' %>

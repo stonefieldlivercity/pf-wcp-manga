@@ -1,2 +1,28 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="container">
+  <h3>show</h3>
+  <div class="col-md-6">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>title</td>
+          <td><%= @book.title %></td>
+        </tr>
+        <tr>
+          <td>author</td>
+          <td><%= @book.name %></td>
+        </tr>
+        <tr>
+          <td class=<%= "favorite-" + @book.id.to_s %> >
+            <%= render 'favorites/form', book: @book %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-6">
+    <canvas id="myRadarChrat"></canvas>
+
+  </div>
+</div>
+

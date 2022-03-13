@@ -1,7 +1,21 @@
 class BooksController < ApplicationController
-  
+
   def new
     @book = Book.new
+    p rating = Rating.new
+  end
+
+  def create
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+    @rating = @book.ratings.new(rating_params)
+    if @book.save
+      p @rating.save
+      redirect_to book_path(@book)
+    else
+      puts 'test'
+      render 'new'
+    end
   end
 
   def index
@@ -9,12 +23,16 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:])
+    @book = Book.find(params[:id])
   end
-  
+
   private
-  
+
   def book_params
-    params.require(:book).permit(:title, :name)
+    params.require(:book).permit(:title, :name, :genre_id)
+  end
+
+  def rating_params
+    params.require(:rating).permit(:cool, :cute, :hot, :relax, :emotion, :funny, :complex, :brisk)
   end
 end

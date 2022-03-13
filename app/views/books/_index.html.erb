@@ -8,6 +8,9 @@
       <tr>
         <td><%= link_to book.title book_path(book.id) %></td>
         <td><%= book.name %></td>
+        <td class=<%= "favorite-" + book.id.to_s %> >
+          <%= render "favorites/form", book: book %>
+        </td>
       </tr>
     <% end %>
     </tbody>
