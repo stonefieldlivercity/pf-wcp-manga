@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    p rating = Rating.new
+    @rating = Rating.new
   end
 
   def create
@@ -24,6 +24,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @rating = Rating.find_by(book_id: params[:id])
   end
 
   private

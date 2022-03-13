@@ -1,0 +1,54 @@
+<canvas id="myRadarChart" width="400" height="400"></canvas>
+
+<script>
+  var ctx = document.getElementById("myRadarChart");
+  var myRadarChart = new Chart(ctx, {
+  /*グラフの種類*/
+    type: "radar",
+    data: {
+      labels: [
+  /*各項目のラベル（上から時計回り）*/
+        "cool",
+        "cute",
+        "hot",
+        "relax",
+        "emotion",
+        "funny",
+        "complex",
+        "brisk",
+      ],
+
+      datasets: [ {
+  /*グラフ全体のラベル*/
+        label: "radar chart",
+        backgroundColor: 'rgba(120,252,120,0.5)',
+        borderColor: 'rgba(120,252,120,0.5)',
+  /*グラフで表示するデータ（上から時計回り）*/
+        data: [
+          <%= rating.cool %>,
+          <%= rating.cute %>,
+          <%= rating.hot %>,
+          <%= rating.relax %>,
+          <%= rating.emotion %>,
+          <%= rating.funny %>,
+          <%= rating.complex %>,
+          <%= rating.brisk %>
+        ]
+      } ],
+  /*オプションの設定*/
+      options: {
+        scale: {
+          ticks: {
+            suggestedMin: 0,
+            suggestedMax: 5
+          },
+        },
+        elements: {
+          line: {
+            borderWidth: 5,
+          },
+        },
+      },
+    },
+  });
+</script>
