@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-
   def new
     @book = Book.new
     @rating = Rating.new
@@ -10,10 +9,9 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     @rating = @book.ratings.new(rating_params)
     if @book.save
-      p @rating.save
+      @rating.save
       redirect_to book_path(@book)
     else
-      puts 'test'
       render 'new'
     end
   end
@@ -25,6 +23,17 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @rating = Rating.find_by(book_id: params[:id])
+  end
+
+  def search
+    @books = Book.search(params[:word])
+    p @word = params[:word]
+    redirect_to result_path
+  end
+
+  def result
+    @books = Book.search(params[:word])
+    @word = params[:word]
   end
 
   private

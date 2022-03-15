@@ -1,5 +1,4 @@
 class RatingsController < ApplicationController
-
   private
 
   def rating_params

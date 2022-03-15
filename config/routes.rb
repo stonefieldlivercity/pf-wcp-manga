@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   get "/users/mypage/:id" => "users#show", as: "mypage"
   resources :users
   resources :genres, oniy: [:index, :show]
+  get 'search' => 'books#search'
+  get 'result' => 'books#result'
   resources :books do
     resource :favorites, only: [:create, :destroy]
   end
   resource :ratings, only: [:create]
-  
-  #resouce :ratings, only: [:create]
+  # resouce :ratings, only: [:create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

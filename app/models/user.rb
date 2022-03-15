@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :books
   has_many :favorites, dependent: :destroy
 
-  validates :name, presence: true, uniqueness:true
+  validates :name, presence: true, uniqueness: true
 end
