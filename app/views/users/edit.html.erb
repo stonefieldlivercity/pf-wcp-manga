@@ -1,0 +1,25 @@
+<h2>Edit user</h2>
+
+<%= form_with model: @user, url: user_path(@user), method: :patch do |f| %>
+  <%#= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", user_registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", mypage_path(@user) %>
