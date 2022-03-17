@@ -1,48 +1,50 @@
-<div class="container-fluid px-2">
-  <nav class="navbar p-0 m-0">
-    <div class="row d-flex">
-      <div class="col-10 w-100 text-align-center border">
-        <a href="/" class="navbar-brand p-1 m-1">
-          <h1 class="h1">MANGA!!</h1>
-        </a>
-      </div>
-      <div class="col p-0 flex-shrink-1">
-        <ul class="navbar-nav">
-          <% if user_signed_in? %>
-            <li class="navbar-item border">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn px-2 py-1' %>
-            </li>
-          <% else %>
-            <li class="navbar-item border">
-              <%= link_to 'ユーザー登録', new_user_registration_path, class: 'btn px-2 py-1' %>
-            </li><br>
-            <li class="navbar-item border">
-              <%= link_to 'ログイン', new_user_session_path, class: 'btn px-2 py-1' %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <nav class="navbar main-navbar">
-    <div class="row row-cols-sm-2 d-flex justfy-content-around">
-      <div class="col">
-        <ul class="navbar-nav flex-row">
-          <% if user_signed_in? %>
-            <li class="navbar-item border"><%= link_to '作品一覧', books_path, class: 'btn mx-2 my-1' %></li>
-            <li class="navbar-item border"><%= link_to 'マイページ', mypage_path(current_user), class: 'btn mx-2 my-1' %></li>
-            <li class="navbar-item border"><%= link_to '新規投稿', new_book_path, class: 'btn mx-2 my-1' %></li>
-          <% else %>
-             <li class="navbar-item border"><%= link_to '作品一覧', books_path, class: 'btn mx-2 my-1' %></li>
-          <% end %>
-        </ul>
-      </div class="col">
-        <div class="search-form">
-          <%= form_with url: search_path, method: :get, local: true do |f| %>
-            <%= f.text_field :word, value: @word %>
-            <%= f.submit "search" %>
-          <% end %>
+<div class="container-fluid px-0">
+  <div class="row d-flex mx-0 mb-n2 border">
+    <div class="col justify-content-between">
+      <nav class="navbar px-0">
+        <div class="flex-grow-1 align-self-stretch text-center border">
+          <a href="/" class="navbar-brand　text-center">
+            <h1>MANGA!!</h1>
+          </a>
         </div>
+        <div class="w-10 ml-3">
+          <ul class="navbar-nav">
+            <% if user_signed_in? %>
+              <li class="navbar-item border">
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn px-2 py-1' %>
+              </li>
+            <% else %>
+              <li class="navbar-item border">
+                <%= link_to 'ユーザー登録', new_user_registration_path, class: 'btn px-2 py-1' %>
+              </li><br>
+              <li class="navbar-item border">
+                <%= link_to 'ログイン', new_user_session_path, class: 'btn px-2 py-1' %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <nav class="navbar p-0 mx-0 my-0">
+    <div class="row d-flex flex-lg-nowrap w-100 px-0 py-2 mx-0 border">
+      <div class="col">
+        <ul class="navbar-nav flex-sm-row text-nowrap text-center">
+          <% if user_signed_in? %>
+            <li class="navbar-item flex-fill border mx-1"><%= link_to '作品一覧', books_path, class: 'btn mx-2 my-1' %></li>
+            <li class="navbar-item flex-fill border mx-1"><%= link_to 'マイページ', mypage_path(current_user), class: 'btn mx-2 my-1' %></li>
+            <li class="navbar-item flex-fill border mx-1"><%= link_to '新規投稿', new_book_path, class: 'btn mx-2 my-1' %></li>
+          <% else %>
+            <li class="navbar-item border"><%= link_to '作品一覧', books_path, class: 'btn mx-2 my-1' %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="col mt-2 mt-md-0">
+          <%= form_with url: result_path, method: :get, class: 'form-inline flex-nowrap', local: true do |f| %>
+            <%= f.text_field :word, class: "form-control-lg flex-grow-1 border mw-25 py-4" %>
+            <%= f.submit "search", class: "btn btn-lg border ml-2" %>
+          <% end %>
       </div>
     </div>
   </nav>

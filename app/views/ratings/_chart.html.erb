@@ -23,6 +23,7 @@
         label: "radar chart",
         backgroundColor: 'rgba(120,252,120,0.5)',
         borderColor: 'rgba(120,252,120,0.5)',
+        borderWidth: 4,
   /*グラフで表示するデータ（上から時計回り）*/
         data: [
           <%= rating.cool %>,
@@ -35,20 +36,16 @@
           <%= rating.brisk %>
         ]
       } ],
+    },
   /*オプションの設定*/
       options: {
-        scale: {
-          ticks: {
+        scales: {
+          r: {
             suggestedMin: 0,
-            suggestedMax: 5
+            suggestedMax: 5,
+            beginAtZero: true,
           },
         },
-        elements: {
-          line: {
-            borderWidth: 5,
-          },
-        },
-      },
-    },
+      }
   });
 </script>

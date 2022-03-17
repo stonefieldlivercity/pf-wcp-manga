@@ -8,20 +8,16 @@
 }
 body {
   background-color: #fafdff;
-  text-color: #000;
+
 }
 
 /*********ヘッダー********/
-.h1 {
-  font-size: 72px;
-
-}
 .border {
   border: 8px solid #000 !important;
 }
 
 /*********フッター*********/
 footer {
-  height: 200px;
-
+  postion: absolute;
+  bottom: 0;
 }

@@ -25,12 +25,6 @@ class BooksController < ApplicationController
     @rating = Rating.find_by(book_id: params[:id])
   end
 
-  def search
-    @books = Book.search(params[:word])
-    p @word = params[:word]
-    redirect_to result_path
-  end
-
   def result
     @books = Book.search(params[:word])
     @word = params[:word]
