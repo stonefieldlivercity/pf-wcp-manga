@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>Genre#Index</tr>
+      </thead>
+      <tbody>
+      <% genres.each do |genre| %>
+        <tr><%= link_to genre.name, genre_path(genre.id) %></tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,3 @@
+$('.favorite-<%= @favorite.book_id %>').html(
+  "<%= j(render 'favorites/form', book: @favorite.book ) %>"
+)

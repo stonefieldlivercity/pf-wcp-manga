@@ -1,0 +1,23 @@
+@import '~bootstrap/scss/bootstrap';
+
+/*******共通部分*******/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #fafdff;
+
+}
+
+/*********ヘッダー********/
+.border {
+  border: 8px solid #000 !important;
+}
+
+/*********フッター*********/
+footer {
+  postion: absolute;
+  bottom: 0;
+}
