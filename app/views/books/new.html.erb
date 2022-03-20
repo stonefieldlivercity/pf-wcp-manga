@@ -1,24 +1,36 @@
 <div class="container-fuild">
   <h3 class="p-3 mx-auto mt-n2 border">新規投稿</h3>
-  <div class="row">
+
   <%= form_with model: @book, method: :post, local: true do |f| %>
-    <div class="col-md-10 px-5 mx-auto">
+  <div class="row">
+    <div class="col-sm-6 px-5 mx-auto">
       <h5 class="mb-4">基本情報</h6>
       <div class="form-group">
         <%= f.label :title, class: "mx-3" %>
         <%= f.text_field :title, class: 'border' %>
       </div>
-
-      <div class="form-group">
-        <%= f.label :genre, class: "mx-3" %>
-        <%= f.collection_select :genre_id, Genre.all, :id, :name, class: 'select form-control form-control-lg' %>
-      </div>
-
       <div class="form-group">
         <%= f.label :name, class: "ml-3 mr-2" %>
         <%= f.text_field :name, class: 'border' %>
       </div>
     </div>
+
+    <div class="col-sm-6 px-5 mx-auto">
+      <h5>ジャンル</h5>
+      <div class="form-check mx-3">
+        <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |b| %>
+          <%= b.label do %>
+          <span class="btn btn-outline-info">
+            <%= b.text %>
+            <%= b.check_box %>
+          </span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-10 p-5 mx-auto">
       <h5>評価</h6>
       <%= render 'ratings/form', book: @book %>
@@ -32,12 +44,11 @@
       <%= f.hidden_field :complex, :value => 'score' %>
       <%= f.hidden_field :brisk, :value => 'score' %>
     </div>
-
+  </div>
     <div class="d-flex justify-content-center">
-      <%= f.submit '投稿', class: 'btn border' %>
+      <%= f.submit '投稿', class: 'btn btn-outline-dark btn-block border' %>
     </div>
   <% end %>
-  </div>
 </div>
 
 

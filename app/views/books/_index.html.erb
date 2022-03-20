@@ -11,7 +11,11 @@
       <td><%= link_to book.title, book_path(book.id) %></td>
       <td><%= book.name %></td>
       <td class=<%= "favorite-" + book.id.to_s %> >
-        <%= render "favorites/form", book: book %>
+        <% if user_signed_in? %>
+          <%= render "favorites/form", book: book %>
+        <% else %>
+          <%= book.favorites.count %>いいね %>
+        <% end %>
       </td>
     </tr>
   <% end %>

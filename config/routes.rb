@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get "/homes/about" => "homes#about", as: "about"
   get "/users/mypage/:id" => "users#show", as: "mypage"
-  resources :users
-  resources :genres, oniy: [:index, :show]
+  resources :users, only: [:show, :edit, :update]
+  resources :genres, only: [:index, :show]
   get 'search' => 'books#search'
   get 'result' => 'books#result'
-  resources :books do
+  resources :books, only: [:new, :create, :show, :index] do
     resource :favorites, only: [:create, :destroy]
   end
   resource :ratings, only: [:create]
