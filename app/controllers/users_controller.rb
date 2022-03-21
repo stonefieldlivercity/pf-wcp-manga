@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :ensure_correct_user, only: [:show, :edit, :update]
 
   def show
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @books = current_user.books.all
+    favorites = Favorite.where(user_id: @user.id).pluck(:book_id)
+    @favo_books = Book.find(favorites)
   end
 
   def edit

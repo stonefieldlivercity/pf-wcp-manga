@@ -17,7 +17,11 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    if sort_params.present?
+      @books = Book.sort_books(sort_params)
+    else
+      @books = Book.all
+    end
   end
 
   def show
@@ -34,6 +38,10 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :name, genre_ids: [])
+  end
+
+  def sort_params
+    params.permit(:sort)
   end
 
   def rating_params
