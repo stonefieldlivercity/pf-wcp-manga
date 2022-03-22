@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:show, :edit, :update]
 
   def show
-    #@user = User.find(params[:id])
     @books = current_user.books.all
     favorites = Favorite.where(user_id: @user.id).pluck(:book_id)
     @favo_books = Book.find(favorites)
@@ -15,7 +14,9 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       redirect_to mypage_path(@user)
+      flash[:notice] = "ユーザー情報を保存しました"
     else
+      flash.now[:alert] = "ユーザー情報を保存失敗しました"
       render "edit"
     end
   end

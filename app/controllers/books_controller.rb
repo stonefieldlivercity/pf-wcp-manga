@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @book = Book.new
     @rating = Rating.new
@@ -11,7 +13,9 @@ class BooksController < ApplicationController
     if @book.save
       @rating.save
       redirect_to book_path(@book)
+      flash[:notice] = "投稿しました"
     else
+      flash.now[:alert] = "投稿失敗しました"
       render 'new'
     end
   end
@@ -30,8 +34,8 @@ class BooksController < ApplicationController
   end
 
   def result
-    @books = Book.search(params[:word])
     @word = params[:word]
+    @books = Book.search(params[:word])
   end
 
   private

@@ -26,5 +26,7 @@ class Book < ApplicationRecord
     end
   end
 
-  validates :title, :name, presence: true
+  validates :title, presence: true, uniqueness: true
+  validates :name, presence: true
+
 end

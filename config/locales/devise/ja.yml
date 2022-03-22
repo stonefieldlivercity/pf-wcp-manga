@@ -1,0 +1,126 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: "ユーザー名"
+        confirmation_sent_at: "パスワード確認送信時刻"
+        confirmation_token: "パスワード確認用トークン"
+        confirmed_at: "パスワード確認時刻"
+        current_password: "現在のパスワード"
+        current_sign_in_at: "現在のログイン時刻"
+        current_sign_in_ip: "現在のログインIPアドレス"
+        email: "メールアドレス"
+        encrypted_password: "暗号化パスワード"
+        failed_attempts: "失敗したログイン試行回数"
+        last_sign_in_at: "最終ログイン時刻"
+        last_sign_in_ip: "最終ログインIPアドレス"
+        locked_at: "ロック時刻"
+        password: "パスワード"
+        password_confirmation: "パスワード（確認用）"
+        remember_created_at: "ログイン記憶時刻"
+        remember_me: "ログインを記憶する"
+        reset_password_sent_at: "パスワードリセット送信時刻"
+        reset_password_token: "パスワードリセット用トークン"
+        sign_in_count: "ログイン回数"
+        unconfirmed_email: "未確認Eメール"
+        unlock_token: "ロック解除用トークン"
+        created_at: "登録日"
+        updated_at: "更新日"
+    models:
+      user: "ユーザー"
+  devise:
+    confirmations:
+      confirmed: "アカウントを登録しました"
+      send_instructions: "アカウントの有効化について数分以内にメールでご連絡します"
+      send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、本人確認用のメールが数分以内に送信されます"
+    failure:
+      already_authenticated: "すでにログインしています"
+      inactive: "アカウントが有効化されていません"
+      invalid: "%{authentication_keys} もしくはパスワードが不正です"
+      locked: "あなたのアカウントは凍結されています"
+      last_attempt: "あなたのアカウントが凍結される前に、複数回の操作がおこなわれています"
+      not_found_in_database: "%{authentication_keys} もしくはパスワードが不正です"
+      timeout: "セッションがタイムアウトしました。もう一度ログインしてください"
+      unauthenticated: "アカウント登録もしくはログインしてください"
+      unconfirmed: "メールアドレスの本人確認が必要です"
+#メール機能について
+    mailer:
+      confirmation_instructions:
+        subject: "アカウントの有効化について"
+      reset_password_instructions:
+        subject: "パスワードの再設定について"
+      unlock_instructions:
+        subject: "アカウントの凍結解除について"
+      password_change:
+        subject: "パスワードの変更について"
+    omniauth_callbacks:
+      failure: "%{kind} アカウントによる認証に失敗しました 理由：（%{reason}）"
+      success: "%{kind} アカウントによる認証に成功しました"
+    passwords:
+      no_token: "このページにはアクセスできません。パスワード再設定メールのリンクからアクセスされた場合には、URL をご確認ください"
+      send_instructions: "パスワードの再設定について数分以内にメールでご連絡いたします"
+      send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、パスワード再設定用のメールが数分以内に送信されます"
+      updated: "パスワードが正しく変更されました"
+      updated_not_active: "パスワードが正しく変更されました"
+#サインアップ登録関連
+    registrations:
+      new:
+        sign_up: "アカウント登録"
+      signed_up: "アカウント登録が完了しました"
+      signed_up_but_inactive: "ログインするためには、アカウントを有効化してください"
+      signed_up_but_locked: "アカウントが凍結されているためログインできません"
+      signed_up_but_unconfirmed: "本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください"
+#アカウント編集関連
+      edit:
+        are_you_sure: "本当によろしいですか？"
+        cancel_my_account: "アカウント削除"
+        currently_waiting_confirmation_for_email: "%{email} の確認待ち"
+        leave_blank_if_you_don_t_want_to_change_it: "空欄のままなら変更しません"
+        title: "%{resource}編集"
+        unhappy: "気に入りません"
+        update: "更新を保存"
+        we_need_your_current_password_to_confirm_your_changes: "確認の為現在のパスワードを入力してください"
+      update_needs_confirmation: 'アカウント情報を変更しました'
+      updated: "アカウント情報を変更しました"
+      destroyed: "アカウントを削除しました。またのご利用をお待ちしております"
+#ログイン関連
+    sessions:
+      new:
+        sign_in: "ログイン"
+      signed_in: "ログインしました"
+      signed_out: "ログアウトしました"
+      already_signed_out: "既にログアウト済みです"
+    unlocks:
+      new:
+        reseted_unlock_instructions: "アカウントの凍結解除方法を再送する"
+      send_instructions: "アカウントの凍結解除方法を数分以内にメールでご連絡します"
+      send_paranoid_instructions: "アカウントが見つかった場合、アカウントの凍結解除方法を数分以内にメールでご連絡します"
+      unlocked: "アカウントを凍結解除しました"
+#エラーメッセージ
+  errors:
+    messages:
+      already_confirmed: "は既に登録済みです。ログインしてください"
+      confirmation_period_expired: "の期限が切れました。%{period} までに確認する必要があります"
+      expired: "の有効期限が切れました"
+      not_found: "は見つかりませんでした"
+      not_locked: "は凍結されていません"
+      not_saved:
+        one: "エラーが発生したため %{resource} は保存されませんでした"
+        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした"
+      taken: "は既に使用されています"
+      blank: "が入力されていません"
+      too_short: "は%{count}文字以上に設定してください"
+      too_long: "は%{count}文字以下に設定してください"
+      invalid: "は有効ではありません"
+      confirmation: "が内容と合っていません"
+#リンクページ
+    shared:
+      links:
+        back: "戻る"
+        didn_t_receive_confirmation_instructions: "アカウント確認のメールを受け取っていませんか？"
+        didn_t_receive_unlock_instructions: "アカウントのロック解除方法のメールを受け取っていませんか？"
+        forgot_your_password: "パスワードを忘れましたか？"
+        sign_in: "ログイン"
+        sign_in_with_provider: "%{provider}でログイン"
+        sign_up: "アカウント登録"
+      minimum_password_length: "（%{count}字以上）"
