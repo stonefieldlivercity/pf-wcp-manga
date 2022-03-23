@@ -1,3 +1,4 @@
 class Genre < ApplicationRecord
-  has_many :books, dependent: :destroy
+  has_many :tags, dependent: :destroy
+  has_many :books, through: :tags, dependent: :destroy
 end

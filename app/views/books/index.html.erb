@@ -2,6 +2,21 @@
   <div class="row">
     <h3>商品一覧</h3>
     <div class="col-md-10 mx-auto">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+
+        </li>
+        <li class="nav-item">
+          <%= link_to "投稿が新しい順", books_path(sort: 'updated_at_desc') %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "投稿が古い順", books_path(sort: 'updated_at_asc') %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "いいねが多い順", books_path(sort: 'favorited_desc') %>
+        </li>
+      </ul>
+
       <%= render 'books/index', books: @books %>
     </div>
   </div>

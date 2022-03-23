@@ -12,6 +12,13 @@
           <td><%= @book.name %></td>
         </tr>
         <tr>
+          <td>
+            <% @book.genres.each do |b| %>
+              <%= b.name %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
           <td class=<%= "favorite-" + @book.id.to_s %> >
             <%= render 'favorites/form', book: @book %>
           </td>

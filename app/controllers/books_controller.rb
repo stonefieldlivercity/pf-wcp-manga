@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @book = Book.new
     @rating = Rating.new
@@ -11,13 +13,19 @@ class BooksController < ApplicationController
     if @book.save
       @rating.save
       redirect_to book_path(@book)
+      flash[:notice] = "投稿しました"
     else
+      flash.now[:alert] = "投稿失敗しました"
       render 'new'
     end
   end
 
   def index
-    @books = Book.all
+    if sort_params.present?
+      @books = Book.sort_books(sort_params)
+    else
+      @books = Book.all
+    end
   end
 
   def show
@@ -26,14 +34,18 @@ class BooksController < ApplicationController
   end
 
   def result
-    @books = Book.search(params[:word])
     @word = params[:word]
+    @books = Book.search(params[:word])
   end
 
   private
 
   def book_params
-    params.require(:book).permit(:title, :name, :genre_id)
+    params.require(:book).permit(:title, :name, genre_ids: [])
+  end
+
+  def sort_params
+    params.permit(:sort)
   end
 
   def rating_params
