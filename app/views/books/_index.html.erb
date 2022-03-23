@@ -1,26 +1,27 @@
 <table class="table">
-  <thead>
+  <thead class="border text-center">
     <tr>
       <th>title</th>
       <th>author</th>
-      <th>genre</th>
+      <th>genres</th>
+      <th>favorites</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="text-center">
   <% books.each do |book| %>
     <tr>
       <td><%= link_to book.title, book_path(book.id) %></td>
       <td><%= book.name %></td>
       <td>
         <% book.genres.each do |b| %>
-          <%= link_to b.name, genre_path(b), class: 'btn btn-sm btn-outline-primary' %>
+          <%= link_to b.name, genre_path(b), class: 'btn btn-sm btn-outline-primary m-1' %>
         <% end %>
       </td>
-      <td class=<%= "favorite-" + book.id.to_s %> >
+      <td class="<%= "favorite-" + book.id.to_s %> text-nowrap">
         <% if user_signed_in? %>
           <%= render "favorites/form", book: book %>
         <% else %>
-          <%= book.favorites.count %>いいね
+          <%= book.favorites.count %>いいね！
         <% end %>
       </td>
     </tr>

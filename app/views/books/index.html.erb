@@ -1,19 +1,16 @@
-<div class="container">
+<h3 class="text-center border py-3 mx-0 mt-n2">商品一覧</h3>
+<div class="container px-0">
   <div class="row">
-    <h3>商品一覧</h3>
-    <div class="col-md-10 mx-auto">
-      <ul class="nav nav-pills">
-        <li class="nav-item">
-
+    <div class="col-sm-12 col-lg-8 mx-auto">
+      <ul class="nav nav-tabs justify-content-center flex-nowrap my-2">
+        <li class="nav-item mx-1 border">
+          <%= link_to "投稿が新しい順", books_path(sort: 'updated_at_desc'), class: 'nav-link' %>
         </li>
-        <li class="nav-item">
-          <%= link_to "投稿が新しい順", books_path(sort: 'updated_at_desc') %>
+        <li class="nav-item mx-1 border">
+          <%= link_to "投稿が古い順", books_path(sort: 'updated_at_asc'), class: 'nav-link' %>
         </li>
-        <li class="nav-item">
-          <%= link_to "投稿が古い順", books_path(sort: 'updated_at_asc') %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "いいねが多い順", books_path(sort: 'favorited_desc') %>
+        <li class="nav-item mx-1 border">
+          <%= link_to "いいねが多い順", books_path(sort: 'favorited_desc'), class: 'nav-link' %>
         </li>
       </ul>
 

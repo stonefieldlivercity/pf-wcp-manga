@@ -6,18 +6,40 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background-color: #fafdff;
-
 }
 
-/*********ヘッダー********/
+.row{
+  margin-right: initial;
+  margin-left: initial;
+}
 .border {
   border: 8px solid #000 !important;
 }
-
-/*********フッター*********/
+/***フラッシュメッセージ*****/
+.alert {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #dc3545;
+}
+.notice {
+  color: #155724;
+  background-color: #20c997;
+  border-color: #28a745;
+}
+/********テーブル***********/
+thead, tr {
+  border-bottom: 8px solid #000;
+}
+/*********ヘッダー**********/
+header {
+  background-color: #fafdff;
+}
+/*********フッター**********/
 footer {
   postion: absolute;
   bottom: 0;
+  background-color: #fafdff;
 }
