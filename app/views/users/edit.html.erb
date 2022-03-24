@@ -1,24 +1,36 @@
-<h2>Edit user</h2>
+<h3 class="text-center p-3 mx-auto mt-n2 border">Edit user</h3>
+<div class="container px-0">
+  <%= render 'layouts/notification' %>
+  <div class="row">
+    <div class="col-sm-10 col-lg-5 mx-auto my-3">
+      <%= form_with model: @user, url: user_path(@user), class: 'px-5 py-3 border', method: :patch do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
 
-<%= form_with model: @user, url: user_path(@user), method: :patch do |f| %>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
+        </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+        <div class="form-group text-center">
+          <%= f.submit 'update', class: 'btn btn-outline-dark border' %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-sm-10 col-lg-5 mx-auto mb-3 border">
+      <h5 class="text-center my-3">Cancel my account</h5>
+
+      <p class="form-inline justify-content-around my-2">
+        <label class="form-label">unhappy?</label>
+        <%= link_to "Cancel my account", user_registration_path, data: { confirm: "Are you sure?" },
+        method: :delete, class: 'btn btn-outline-dark border' %>
+      </p>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
+  <div class="row">
+    <%= link_to "Back", mypage_path(@user), class: 'btn btn-lg btn-outline-dark border' %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", user_registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", mypage_path(@user) %>
+</div>

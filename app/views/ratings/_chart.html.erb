@@ -20,10 +20,11 @@
 
       datasets: [ {
   /*グラフ全体のラベル*/
-        label: "radar chart",
+        label: "評価",
         backgroundColor: 'rgba(120,252,120,0.5)',
         borderColor: 'rgba(120,252,120,0.5)',
-        borderWidth: 4,
+        borderWidth: 5,
+        fill: true,
   /*グラフで表示するデータ（上から時計回り）*/
         data: [
           <%= rating.cool %>,
@@ -41,9 +42,29 @@
       options: {
         scales: {
           r: {
-            suggestedMin: 0,
-            suggestedMax: 5,
+            min: 0,
+            max: 5,
+            maxTicksLimit: 5,
             beginAtZero: true,
+            ticks: {
+              stepSize: 1,
+              font: {
+                size: 16,
+              },
+            },
+            grid: {
+              color: '#000',
+              lineWidth: 4,
+            },
+            angleLines: {
+              color: "#000",
+              lineWidth: 2,
+            },
+            pointLabels: {
+              font: {
+                size: 18,
+              }
+            }
           },
         },
       }

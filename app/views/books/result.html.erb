@@ -1,8 +1,12 @@
-<div class="container">
+<h3 class="text-center p-3 mx-auto mt-n2 border">
+  search for "<%= @word %>"
+</h3>
+<div class="container px-0">
   <div class="row">
-    <h3>search for "<%= @word %>"</h3>
+    <div class="col-sm-12 col-lg-8 mx-auto">
+      <%= render 'books/sort' %>
 
-    <%= render 'books/index', books: @books %>
-
+      <%= render 'books/index', books: @books %>
+    </div>
   </div>
 </div>

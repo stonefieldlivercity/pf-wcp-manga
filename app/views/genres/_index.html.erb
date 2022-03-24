@@ -1,10 +1,7 @@
-<div class="row p-3">
-  <div class="col p-0">
-    <h5 class="text-center my-2">genres</h5>
-    <% genres.each do |b| %>
-      <%= link_to b.name, genre_path(b), class: 'btn btn-sm btn-outline-primary' %>
-    <% end %>
-  </div>
-</div>
+<h5 class="text-center mb-4">genres</h5>
+<% genres.each do |b| %>
+  <%= link_to b.name, genre_path(b), class: 'btn btn-outline-primary m-1' %>
+<% end %>
+
 
 

@@ -1,34 +1,38 @@
+<h3 class="text-center p-3 mx-auto mt-n2 border">詳細情報</h3>
 <div class="container">
-  <h3>show</h3>
-  <div class="col-md-6">
-    <table class="table">
-      <tbody>
-        <tr>
-          <td>title</td>
-          <td><%= @book.title %></td>
-        </tr>
-        <tr>
-          <td>author</td>
-          <td><%= @book.name %></td>
-        </tr>
-        <tr>
-          <td>
-            <% @book.genres.each do |b| %>
-              <%= b.name %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <td class=<%= "favorite-" + @book.id.to_s %> >
-            <%= render 'favorites/form', book: @book %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>title</th>
+            <td><%= @book.title %></td>
+          </tr>
+          <tr>
+            <th>author</th>
+            <td><%= @book.name %></td>
+          </tr>
+          <tr>
+            <th>genres</th>
+            <td>
+              <% @book.genres.each do |b| %>
+                <%= b.name %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th>favorites</th>
+            <td class=<%= "favorite-" + @book.id.to_s %> >
+              <%= render 'favorites/form', book: @book %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <div class="col-md-6">
-    <%= render 'ratings/chart', rating: @rating %>
+    <div class="col-md-6">
+      <%= render 'ratings/chart', rating: @rating %>
+    </div>
   </div>
 </div>
 

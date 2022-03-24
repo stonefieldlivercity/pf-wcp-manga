@@ -1,7 +1,12 @@
-<div class="container">
-  <h3>index for <%= @genre.name %></h3>
-
+<h3 class="text-center p-3 mx-auto mt-n2 border">
+  index for <%= @genre.name %>
+</h3>
+<div class="container px-0 my-2">
   <div class="row">
-    <%= render 'books/index', books: @books %>
+    <div class="col-sm-12 col-lg-8 mx-auto">
+      <%= render 'books/sort' %>
+
+      <%= render 'books/index', books: @books %>
+    </div>
   </div>
 </div>
