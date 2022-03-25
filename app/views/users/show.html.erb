@@ -17,6 +17,10 @@
 
       <div class="d-flex justify-content-center">
         <%= link_to "user edit", edit_user_path(@user), class: 'btn btn-lg btn-outline-dark border' %>
+
+        <% if current_user.admin? %>
+          <%= link_to "edit_tags", new_genre_path, class: 'btn btn-lg btn-outline-dark ml-5 border' %>
+        <% end %>
       </div>
     </div>
 

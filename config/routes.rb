@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   get "/homes/about" => "homes#about", as: "about"
   get "/users/mypage/:id" => "users#show", as: "mypage"
   resources :users, only: [:show, :edit, :update]
-  resources :genres, only: [:index, :show]
+  resources :genres, only: [:index, :show, :new, :create, :destroy]
   get 'search' => 'books#search'
   get 'result' => 'books#result'
-  resources :books, only: [:new, :create, :show, :index] do
+  resources :books, only: [:new, :create, :show, :index, :destroy] do
     resource :favorites, only: [:create, :destroy]
   end
   resource :ratings, only: [:create]

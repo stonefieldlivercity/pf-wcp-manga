@@ -28,9 +28,15 @@
           </tr>
         </tbody>
       </table>
+
+      <% if current_user.admin? %>
+        <%= link_to book_path(@book), method: :delete, data: { confirm: "Are you sure ?" } do %>
+          <span class="btn btn-block btn-outline-danger">delete</span>
+        <% end %>
+      <% end %>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 p-3">
       <%= render 'ratings/chart', rating: @rating %>
     </div>
   </div>

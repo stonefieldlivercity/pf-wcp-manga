@@ -38,6 +38,11 @@ class BooksController < ApplicationController
     @books = Book.search(params[:word])
   end
 
+  def destroy
+    @book = Book.find(params[:id]).destroy
+    redirect_to mypage_path(current_user)
+  end
+
   private
 
   def book_params
