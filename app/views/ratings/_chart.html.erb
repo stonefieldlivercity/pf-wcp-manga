@@ -1,13 +1,12 @@
-<canvas id="myRadarChart" width="400" height="400"></canvas>
-
+<canvas id="myRadarChart" class="w-100 h-100"></canvas>
 <script>
   var ctx = document.getElementById("myRadarChart");
   var myRadarChart = new Chart(ctx, {
-  /*グラフの種類*/
+/*グラフの種類*/
     type: "radar",
     data: {
       labels: [
-  /*各項目のラベル（上から時計回り）*/
+/*各項目のラベル（上から時計回り）*/
         "cool",
         "cute",
         "hot",
@@ -19,13 +18,13 @@
       ],
 
       datasets: [ {
-  /*グラフ全体のラベル*/
+/*グラフ全体のラベル*/
         label: "評価",
         backgroundColor: 'rgba(120,252,120,0.5)',
         borderColor: 'rgba(120,252,120,0.5)',
         borderWidth: 5,
         fill: true,
-  /*グラフで表示するデータ（上から時計回り）*/
+/*グラフで表示するデータ（上から時計回り）*/
         data: [
           <%= rating.cool %>,
           <%= rating.cute %>,
@@ -38,7 +37,7 @@
         ]
       } ],
     },
-  /*オプションの設定*/
+/*オプションの設定*/
       options: {
         scales: {
           r: {

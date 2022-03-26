@@ -1,7 +1,30 @@
-<div class="container mx-5">
+<div class="container px-0">
+  <%= render 'layouts/notification' %>
   <div class="row">
-    <div class="col-sm-4 my-3 py-4 border">
+    <div class="col-md-4 my-3 py-4 border">
       <%= render 'genres/index', genres: @genres %>
+    </div>
+
+    <div class="col-md-8 my-3">
+      <% @books.each do |b| %>
+      <%# [@books, @rating].each do |b, rating| %>
+        <div class="card">
+          <div class="row no-gutters border">
+            <div class="col-md-5">
+              <div class="card-body">
+                <h5 class="card-title"><%= b.title %></h6>
+                <h5 class="card-subtitle"><%= b.name %></h5>
+                <span class=<%= "favorite-" + b.id.to_s %> >
+                  <%= render 'favorites/form', book: b %>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <%= render 'ratings/chart', rating: @rating %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

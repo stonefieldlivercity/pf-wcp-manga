@@ -29,7 +29,7 @@
         </tbody>
       </table>
 
-      <% if current_user.admin? %>
+      <% if user_signed_in? && current_user.admin? %>
         <%= link_to book_path(@book), method: :delete, data: { confirm: "Are you sure ?" } do %>
           <span class="btn btn-block btn-outline-danger">delete</span>
         <% end %>

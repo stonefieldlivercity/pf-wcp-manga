@@ -20,7 +20,7 @@ class Book < ApplicationRecord
     when 'updated_at_asc'
       order("updated_at ASC")
     when 'favorited_desc'
-      Book.find(Favorite.group(:book_id).order("count(book_id) DESC").pluck(:book_id))
+      Book.find(Favorite.group(:book_id).order('count(book_id) DESC').pluck(:book_id))
     else
       order("updated_at DESC")
     end

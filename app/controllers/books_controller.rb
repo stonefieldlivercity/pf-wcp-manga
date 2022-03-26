@@ -13,7 +13,7 @@ class BooksController < ApplicationController
     if @book.save
       @rating.save
       redirect_to book_path(@book)
-      flash[:notice] = "投稿しました"
+      flash.now[:notice] = "投稿しました"
     else
       flash.now[:alert] = "投稿失敗しました"
       render 'new'
@@ -40,7 +40,7 @@ class BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id]).destroy
-    redirect_to mypage_path(current_user)
+    redirect_to books_path
   end
 
   private

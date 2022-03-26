@@ -1,31 +1,6 @@
+#devise関連のビュー
 en:
   activerecord:
-    attributes:
-      user:
-        name: "User name"
-        confirmation_sent_at: "Password confirmation transmission time"
-        confirmation_token: "Password confirmation token"
-        confirmed_at: "Password confirmation time"
-        current_password: "Current password"
-        current_sign_in_at: "Current login time"
-        current_sign_in_ip: "Current login IP address"
-        email: "Email"
-        encrypted_password: "Encrypted password"
-        failed_attempts: "Number of failed login attempts"
-        last_sign_in_at: "Last login time"
-        last_sign_in_ip: "Last login IP address"
-        locked_at: "Locked time"
-        password: "Password"
-        password_confirmation: "Password for confirmation"
-        remember_created_at: "Login memory time"
-        remember_me: "Remember login"
-        reset_password_sent_at: "Password reset transmission time"
-        reset_password_token: "Password reset token"
-        sign_in_count: "Number of login"
-        unconfirmed_email: "Unconfirmed email"
-        unlock_token: "Unlock token"
-        created_at: "Registration date"
-        updated_at: "Update date"
     models:
       user: "User"
   devise:

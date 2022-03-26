@@ -18,11 +18,7 @@
         <% end %>
       </td>
       <td class="<%= "favorite-" + book.id.to_s %> text-nowrap">
-        <% if user_signed_in? %>
-          <%= render "favorites/form", book: book %>
-        <% else %>
-          <%= book.favorites.count %>いいね！
-        <% end %>
+        <%= render "favorites/form", book: book %>
       </td>
     </tr>
   <% end %>
