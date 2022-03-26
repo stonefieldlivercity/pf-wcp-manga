@@ -40,7 +40,7 @@ en:
         emotion: "Emotional"
         funny: "Funny"
         complex: "Complex"
-        brisk: "Brisk"  
+        brisk: "Brisk"
     attributes:
       created_at: "Registration date"
       updated_at: "Update date"

@@ -1,32 +1,30 @@
 <div class="container-fluid px-0">
-  <div class="row d-flex mx-0 mb-n2 border">
-    <div class="col justify-content-between">
-      <nav class="navbar px-0">
-        <div class="flex-grow-1 align-self-stretch text-center border">
-          <a href="/" class="navbar-brand　text-center">
-            <h1>MANGA!!</h1>
-          </a>
-        </div>
-        <div class="w-10 ml-3">
-          <ul class="navbar-nav">
-            <% if user_signed_in? %>
-              <li class="navbar-item border">
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn px-2 py-1' %>
-              </li>
-            <% else %>
-              <li class="navbar-item border">
-                <%= link_to 'ユーザー登録', new_user_registration_path, class: 'btn px-2 py-1' %>
-              </li><br>
-              <li class="navbar-item border">
-                <%= link_to 'ログイン', new_user_session_path, class: 'btn px-2 py-1' %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </nav>
+  <nav class="navbar p-0 m-0" style="height: 150px">
+    <div class="row d-flex flex-sm-nowrap w-100 p-2 border">
+      <div class="d-flex flex-grow-1 justify-content-center border">
+        <a href="/" class="navbar-brand btn-block">
+          <h1 class="align-self-center">MANGA!!</h1>
+        </a>
+      </div>
+      <div class="text-nowrap ml-2">
+        <ul class="nav flex-sm-column">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-outline-dark btn-block border' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'ユーザー登録', new_user_registration_path, class: 'btn btn-outline-dark btn-block border' %>
+            </li><br>
+            <li class="nav-item">
+              <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-outline-dark btn-block border' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-  <nav class="navbar p-0 mx-0 my-0">
+  </nav>
+  <nav class="navbar p-0 m-0">
     <div class="row d-flex flex-lg-nowrap w-100 px-0 py-2 mx-0 border">
       <div class="col my-1">
         <ul class="navbar-nav flex-sm-row text-nowrap text-center">

@@ -1,6 +1,6 @@
-<canvas id="myRadarChart" class="w-100 h-100"></canvas>
+<canvas id="myRadarChart_<%=rating.id%>" class="w-100 h-100"></canvas>
 <script>
-  var ctx = document.getElementById("myRadarChart");
+  var ctx = document.getElementById("myRadarChart_<%=rating.id%>");
   var myRadarChart = new Chart(ctx, {
 /*グラフの種類*/
     type: "radar",

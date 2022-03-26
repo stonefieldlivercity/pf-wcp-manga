@@ -22,7 +22,7 @@
           </tr>
           <tr>
             <th>favorites</th>
-            <td class=<%= "favorite-" + @book.id.to_s %> >
+            <td class="favorite-<%= @book.id %>" >
               <%= render 'favorites/form', book: @book %>
             </td>
           </tr>
