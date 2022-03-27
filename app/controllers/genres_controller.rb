@@ -18,15 +18,15 @@ class GenresController < ApplicationController
     @genre = Genre.new(genre_params)
     @genres = Genre.all
     if @genre.save
-      flash.now[:notice] = "保存完了しました"
+      flash.now[:notice] = t('notice.created')
     else
-      flash.now[:alert] = "保存失敗しました"
+      render 'new'
     end
   end
 
   def destroy
     @genre = Genre.find(params[:id]).destroy
-    flash.now[:notice] = "削除しました"
+    flash.now[:notice] = t('notice.deleted')
   end
 
   private

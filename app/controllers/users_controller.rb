@@ -14,9 +14,9 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       redirect_to mypage_path(@user)
-      flash[:notice] = "ユーザー情報を保存しました"
+      flash[:notice] = t('notice.updated')
     else
-      flash.now[:alert] = "ユーザー情報を保存失敗しました"
+      flash.now[:alert] = t('alert.update_failed')
       render "edit"
     end
   end

@@ -1,10 +1,22 @@
 <div class="container-fuild">
   <div class="row">
-    <div class="col text-center p-2">footer</div>
-
-    <div class="col-3 d-flex flex-column text-center m-2">
-        <div class="border"><%= link_to "top_page", root_path %></div>
-        <div class="border mt-n2"><%= link_to "about", about_path %></div>
+    <div class="col">
+      <h2 class="text-center">MANGA</h2>
+    </div>
+    <div class="col footer-nav flex-column text-center">
+      <div class="border m-1">
+        <% if session[:locale] == "ja" || session[:locale].blank? %>
+          <%= link_to "/homes/language/en" do %>
+            English
+          <% end %>
+        <% elsif session[:locale] == "en" %>
+          <%= link_to "/homes/language/ja" do %>
+            日本語
+          <% end %>
+        <% end %>
+      </div>
+      <div class="border mx-1"><%= link_to t('defaults.top_page'), root_path %></div>
+      <div class="border m-1"><%= link_to t('defaults.about_page'), about_path %></div>
     </div>
   </div>
 </div>

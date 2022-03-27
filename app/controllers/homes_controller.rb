@@ -2,9 +2,11 @@ class HomesController < ApplicationController
   def top
     @genres = Genre.all
     @books = Book.limit(3).sort_books(sort: 'favorited_desc')
-    p @rating = Rating.find_by(book_id: @books.map(&:id))
+    @rating = Rating.find_by(book_id: @books.map(&:id))
   end
 
-  def about
+  def language
+    session[:locale] = params[:lang]
+    redirect_back(fallback_location: "/")
   end
 end

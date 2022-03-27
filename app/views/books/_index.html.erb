@@ -1,10 +1,10 @@
 <table class="table">
   <thead class="border text-center">
     <tr>
-      <th>title</th>
-      <th>author</th>
-      <th>genres</th>
-      <th>favorites</th>
+      <th><%= Book.human_attribute_name(:title) %></th>
+      <th><%= Book.human_attribute_name(:name) %></th>
+      <th><%= t('defaults.genres') %></th>
+      <th><%= t('defaults.favorites') %></th>
     </tr>
   </thead>
   <tbody class="text-center">

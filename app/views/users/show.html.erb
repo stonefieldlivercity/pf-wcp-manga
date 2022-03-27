@@ -1,37 +1,37 @@
-<h3 class="text-center p-3 mx-auto mt-n2 border">マイページ</h3>
+<h3 class="text-center p-3 mx-auto mt-n2 border"><%= t('.mypage') %></h3>
 <div class="container">
   <div class="row">
     <div class="col">
       <table class="table">
         <tbody>
           <tr>
-            <td><label>ユーザー名</label></td>
+            <td><%= User.human_attribute_name(:name) %></td>
             <td><%= @user.name %></td>
           </tr>
           <tr>
-            <td><label>メールアドレス</label></td>
+            <td><%= User.human_attribute_name(:email) %></td>
             <td><%= @user.email %></td>
           </tr>
         </tbody>
       </table>
 
       <div class="d-flex justify-content-center">
-        <%= link_to "user edit", edit_user_path(@user), class: 'btn btn-lg btn-outline-dark border' %>
+        <%= link_to t('.edit_user'), edit_user_path(@user), class: 'btn btn-lg btn-outline-dark border' %>
 
         <% if current_user.admin? %>
-          <%= link_to "edit_tags", new_genre_path, class: 'btn btn-lg btn-outline-dark ml-5 border' %>
+          <%= link_to t('.edit_genre'), new_genre_path, class: 'btn btn-lg btn-outline-dark ml-5 border' %>
         <% end %>
       </div>
     </div>
 
     <div class="row">
       <div class="col m-3">
-        <h5>自分の投稿一覧</h5>
+        <h5><%= t('.my_book') %></h5>
         <%= render 'books/index', books: @books %>
       </div>
 
       <div class="col m-3">
-        <h5>いいねした投稿一覧</h5>
+        <h5><%= t('.my_favorites') %></h5>
         <%= render 'books/index', books: @favo_books %>
       </div>
     </div>

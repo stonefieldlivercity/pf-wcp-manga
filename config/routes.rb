@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: "homes#top"
   get "/homes/about" => "homes#about", as: "about"
+  get "/homes/language/:lang" => "homes#language"
   get "/users/mypage/:id" => "users#show", as: "mypage"
   resources :users, only: [:show, :edit, :update]
   resources :genres, only: [:index, :show, :new, :create, :destroy]
@@ -12,6 +13,5 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   resource :ratings, only: [:create]
-  # resouce :ratings, only: [:create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

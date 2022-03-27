@@ -1,36 +1,39 @@
-<h3 class="text-center p-3 mx-auto mt-n2 border">Edit user</h3>
+<h3 class="text-center p-3 mx-auto mt-n2 border"><%= t('.edit_user') %></h3>
 <div class="container px-0">
   <%= render 'layouts/notification' %>
   <div class="row">
     <div class="col-sm-10 col-lg-5 mx-auto my-3">
       <%= form_with model: @user, url: user_path(@user), class: 'px-5 py-3 border', method: :patch do |f| %>
         <div class="form-group">
-          <%= f.label :name %>
+          <%= f.label User.human_attribute_name(:name) %>
           <%= f.text_field :name, class: 'form-control' %>
         </div>
 
         <div class="form-group">
-          <%= f.label :email %>
+          <%= f.label User.human_attribute_name(:email) %>
           <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
         </div>
 
         <div class="form-group text-center">
-          <%= f.submit 'update', class: 'btn btn-outline-dark border' %>
+          <%= f.submit t('defaults.update'), class: 'btn btn-outline-dark border' %>
         </div>
       <% end %>
     </div>
 
     <div class="col-sm-10 col-lg-5 mx-auto mb-3 border">
-      <h5 class="text-center my-3">Cancel my account</h5>
+      <h5 class="text-center my-3"><%= t('.cancel_my_account') %></h5>
 
       <p class="form-inline justify-content-around my-2">
-        <label class="form-label">unhappy?</label>
-        <%= link_to "Cancel my account", user_registration_path, data: { confirm: "Are you sure?" },
+        <label class="form-label">
+          <%= t('.unhappy') %><br />
+          <%= t('.confirm') %>
+        </label>
+        <%= link_to t('.cancel_my_account'), user_registration_path, data: { confirm: t('.are_you_sure') },
         method: :delete, class: 'btn btn-outline-dark border' %>
       </p>
     </div>
   </div>
   <div class="row">
-    <%= link_to "Back", mypage_path(@user), class: 'btn btn-lg btn-outline-dark border' %>
+    <%= link_to t('.back'), mypage_path(@user), class: 'btn btn-lg btn-outline-dark border' %>
   </div>
 </div>

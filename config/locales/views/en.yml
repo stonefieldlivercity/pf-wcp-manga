@@ -1,0 +1,64 @@
+en:
+#共通部分
+  defaults:
+    create: 'Submit'
+    update: 'Update'
+    destroy: 'Delete'
+    search: 'Search'
+    sign_out: 'Log out'
+    sign_up: 'Sign up'
+    sign_in:  'Log in'
+    back_top: 'To top'
+    are_you_sure: 'Are you sure？'
+    placeholder:
+      password: '6 charecters minimum'
+      search_for: 'Title or Author'
+    favorites: 'Likes'
+    genres: 'Genres'
+    rating: 'Ratings'
+    top_page: 'Top'
+    about_page: 'About'
+#フラッシュメッセージ
+  notice:
+    created: 'Submit Completed'
+    posted: 'Posting Completed'
+    deleted: 'Delete Completed'
+    updated: 'Update Completed'
+  errors:
+    messages:
+      not_saved:
+        one: 'Could not be saved due to 1 error'
+        other: 'Could not be saved due to %{count} errors'
+      taken: 'Is already userd'
+      blank: 'Is not filled in'
+      invalid: 'Is not valid'
+      confirmation: 'Does not match'
+#favoritesのビュー
+  favorites:
+    like: 'Like？'
+    liked: 'Like！'
+#genresのビュー
+  genres:
+    index:
+      index_genres: 'List of Genres'
+    new:
+      new_title: 'Edit Genres'
+      new_genre: 'Post Genres'
+      delete_genre: 'Delete Genres'
+    show:
+      show_title: 'List of Manga of'
+  ratings:
+    cool: 'Cool'
+    cute: 'Cute'
+    hot: 'Exciting'
+    relax: 'Relax'
+    emotion: 'Emotional'
+    funny: 'Funny'
+    complex: 'Complex'
+    brisk: 'Simplex'
+
+
+
+
+
+

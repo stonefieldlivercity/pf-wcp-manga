@@ -16,6 +16,22 @@
     </header>
     <main class="mb-3">
       <%= yield %>
+
+      <div id="back_top" class="border">
+      <a href="#">
+        <p>上へ</p>
+      </a>
+    </div>
+    <script>
+      $(function() {
+        $('#back_top a').on('click',function(event){
+          $('body, html').animate({
+            scrollTop:0
+          }, 800);
+          event.preventDefault();
+        });
+      });
+    </script>
     </main>
     <footer class="border">
       <%= render "layouts/footer" %>

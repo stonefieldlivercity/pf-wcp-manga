@@ -1,0 +1,20 @@
+#booksビューの英語設定
+en:
+  books:
+#一覧ページ
+    index:
+      index_book: 'List of Books'
+#投稿ページ
+    new:
+      new_book: 'Post Manga'
+      data: 'Title and Autor'
+#詳細ページ
+    show:
+      show_book: 'Detail of Manga'
+#検索結果ページ
+    result:
+      search_for: 'Search for'
+    sort:
+      updated_at_desc: 'Recent'
+      updated_at_asc: 'Oldest'
+      favorited_desc: 'Ranking of Likes'

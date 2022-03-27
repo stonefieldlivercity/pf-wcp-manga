@@ -1,13 +1,13 @@
-<% if user_signed_in? %>  
+<% if user_signed_in? %>
   <% if book.favorited_by?(current_user) %>
     <%= link_to book_favorites_path(book), method: :delete, remote: true do %>
-      <%= book.favorites.count %>いいね！
+      <%= book.favorites.count %><%= t('favorites.liked') %>
     <% end %>
   <% else %>
     <%= link_to book_favorites_path(book), method: :post, remote: true do %>
-      <%= book.favorites.count %>いいね？
+      <%= book.favorites.count %><%= t('favorites.like') %>
     <% end %>
   <% end %>
 <% else %>
-  <%= book.favorites.count %>いいね！
+  <%= book.favorites.count %><%= t('favorites.liked') %>
 <% end %>

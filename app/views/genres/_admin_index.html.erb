@@ -1,8 +1,8 @@
 <% genres.each do |b| %>
   <div id="genre-<%= b.id %>" class="d-flex align-items-center m-1 border">
     <label class="m-1"><%= b.name %></label>
-    <%= link_to genre_path(b.id), method: :delete, data: { confirm: 'Are you sure ?' }, remote: true do %>
-      <p class="btn btn-outline-danger my-auto ml-2" style="border-radius: 0;">削除</p>
+    <%= link_to genre_path(b.id), method: :delete, data: { confirm: t('.are_you_sure') }, remote: true do %>
+      <p class="btn btn-outline-danger my-auto ml-2" style="border-radius: 0;"><%= t('defaults.delete') %></p>
     <% end %>
   </div>
 <% end %>
