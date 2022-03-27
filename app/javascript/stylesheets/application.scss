@@ -18,10 +18,8 @@ body {
 .border {
   border: 8px solid #000 !important;
 }
-#back_top {
-  postion: fixed;
-  right: 60px;
-  bottom: 60px;
+#back_top a {
+  height: 36px;
 }
 /***フラッシュメッセージ*****/
 .alert {
@@ -48,13 +46,18 @@ thead, tr {
 header {
   background-color: #fafdff;
 }
-
 /*********フッター**********/
 footer {
   background-color: #fafdff;
   width: 100%;
-  height: 180px;
+  height: 160px;
+}
+h2 {
+  font-size: 8rem;
 }
 .footer-nav {
   background-color: #fafdff;
+}
+.btn-block {
+  border-radius: 0;
 }

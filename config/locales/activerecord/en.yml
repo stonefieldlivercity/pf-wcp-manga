@@ -47,6 +47,5 @@ en:
         funny: Funny
         complex: Complex
         brisk: Brisk
-    attributes:
       created_at: Registration date
       updated_at: Update date
