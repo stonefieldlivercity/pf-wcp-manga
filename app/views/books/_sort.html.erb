@@ -1,0 +1,11 @@
+<ul class="nav justify-content-center flex-nowrap my-2">
+  <li class="nav-item mx-1 border">
+    <%= link_to t('.updated_at_desc'), books_path(sort: 'updated_at_desc'), class: 'nav-link btn btn-block btn-outline-dark' %>
+  </li>
+  <li class="nav-item mx-1 border">
+    <%= link_to t('.updated_at_asc'), books_path(sort: 'updated_at_asc'), class: 'nav-link btn btn-block btn-outline-dark' %>
+  </li>
+  <li class="nav-item mx-1 border">
+    <%= link_to t('.favorited_desc'), books_path(sort: 'favorited_desc'), class: 'nav-link btn btn-block btn-outline-dark' %>
+  </li>
+</ul>

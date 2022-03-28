@@ -1,30 +1,30 @@
-<canvas id="myRadarChart" width="400" height="400"></canvas>
-
+<canvas id="myRadarChart_<%=rating.id%>" class="w-100 h-100"></canvas>
 <script>
-  var ctx = document.getElementById("myRadarChart");
+  var ctx = document.getElementById("myRadarChart_<%=rating.id%>");
   var myRadarChart = new Chart(ctx, {
-  /*グラフの種類*/
+/*グラフの種類*/
     type: "radar",
     data: {
       labels: [
-  /*各項目のラベル（上から時計回り）*/
-        "cool",
-        "cute",
-        "hot",
-        "relax",
-        "emotion",
-        "funny",
-        "complex",
-        "brisk",
+/*各項目のラベル（上から時計回り）*/
+        "<%= t('ratings.cool') %>",
+        "<%= t('ratings.cute') %>",
+        "<%= t('ratings.hot') %>",
+        "<%= t('ratings.relax') %>",
+        "<%= t('ratings.emotion') %>",
+        "<%= t('ratings.funny') %>",
+        "<%= t('ratings.complex') %>",
+        "<%= t('ratings.brisk') %>"
       ],
 
       datasets: [ {
-  /*グラフ全体のラベル*/
-        label: "radar chart",
+/*グラフ全体のラベル*/
+        label: "<%= t('defaults.rating') %>",
         backgroundColor: 'rgba(120,252,120,0.5)',
         borderColor: 'rgba(120,252,120,0.5)',
-        borderWidth: 4,
-  /*グラフで表示するデータ（上から時計回り）*/
+        borderWidth: 5,
+        fill: true,
+/*グラフで表示するデータ（上から時計回り）*/
         data: [
           <%= rating.cool %>,
           <%= rating.cute %>,
@@ -37,13 +37,33 @@
         ]
       } ],
     },
-  /*オプションの設定*/
+/*オプションの設定*/
       options: {
         scales: {
           r: {
-            suggestedMin: 0,
-            suggestedMax: 5,
+            min: 0,
+            max: 5,
+            maxTicksLimit: 5,
             beginAtZero: true,
+            ticks: {
+              stepSize: 1,
+              font: {
+                size: 16,
+              },
+            },
+            grid: {
+              color: '#000',
+              lineWidth: 4,
+            },
+            angleLines: {
+              color: "#000",
+              lineWidth: 2,
+            },
+            pointLabels: {
+              font: {
+                size: 18,
+              }
+            }
           },
         },
       }

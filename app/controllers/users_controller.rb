@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :ensure_correct_user, only: [:show, :edit, :update]
 
   def show
-    @user = User.find(params[:id])
+    @books = current_user.books.all
+    favorites = Favorite.where(user_id: @user.id).pluck(:book_id)
+    @favo_books = Book.find(favorites)
   end
 
   def edit
@@ -12,7 +14,9 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       redirect_to mypage_path(@user)
+      flash[:notice] = t('notice.updated')
     else
+      flash.now[:alert] = t('notice.not_saved')
       render "edit"
     end
   end

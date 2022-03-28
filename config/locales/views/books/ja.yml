@@ -1,0 +1,22 @@
+#Bookのビューの日本語設定
+ja:
+  books:
+#一覧ページ
+    index:
+      index_book: 'マンガ一覧'
+#投稿ページ
+    new:
+      new_book: '新規投稿'
+      data: '基本情報'
+#詳細ページ
+    show:
+      show_book: 'マンガ詳細'
+#検索結果ページ
+    result:
+      search_for: '検索結果'
+    sort:
+      updated_at_desc: '投稿が新しい順'
+      updated_at_asc: '投稿が古い順'
+      favorited_desc: 'いいねが多い順'
+
+

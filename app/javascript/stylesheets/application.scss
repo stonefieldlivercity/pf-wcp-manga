@@ -6,18 +6,66 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background-color: #fafdff;
-
 }
 
-/*********ヘッダー********/
+.row{
+  margin-right: initial;
+  margin-left: initial;
+}
 .border {
   border: 8px solid #000 !important;
 }
-
-/*********フッター*********/
+#back_top a {
+  height: 36px;
+}
+/***フラッシュメッセージ*****/
+.notification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+}
+.alert {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #dc3545;
+  width: 100%;
+  height: 100%;
+}
+.notice {
+  color: #155724;
+  background-color: #20c997;
+  border-color: #28a745;
+  width: 100%;
+  height: 100%;
+}
+/********テーブル***********/
+tbody, tr {
+  border-bottom: 8px solid #000;
+}
+/*********ヘッダー**********/
+header {
+  background-color: #fafdff;
+}
+h1 {
+  font-size: 3rem;
+  line-height: 1.3;
+}
+/*********フッター**********/
 footer {
-  postion: absolute;
-  bottom: 0;
+  background-color: #fafdff;
+  width: 100%;
+  height: 160px;
+}
+h2 {
+  font-size: 8rem;
+}
+.footer-nav {
+  background-color: #fafdff;
+}
+.btn-block {
+  border-radius: 0;
 }

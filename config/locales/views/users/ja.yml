@@ -1,0 +1,24 @@
+#usersのビューファイルの日本語設定
+ja:
+  users:
+#編集ページ
+    edit:
+      back: '戻る'
+      edit_user: 'アカウント編集'
+      cancel_my_account: 'アカウント削除'
+      unhappy: 'アカウント削除しますか？'
+      confirm: '自分の投稿も削除されます'
+      leave_blank_if_you_don_t_want_to_change_it: '空欄のままなら変更しません'
+      we_need_your_current_password_to_confirm_your_changes: '確認の為現在のパスワードを入力してください'
+      currently_waiting_confirmation_for_email: '%{email} の確認待ち'
+      leave_blank_if_you_don_t_want_to_change_it: '空欄のままなら変更しません'
+#詳細ページ
+    show:
+      mypage: 'マイページ'
+      edit_user: 'アカウント編集'
+      edit_genre: 'ジャンル編集'
+      my_book: '自分の投稿一覧'
+      my_favorites: 'いいねした投稿一覧'
+
+
+
