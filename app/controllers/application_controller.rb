@@ -21,8 +21,8 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-   if %w(ja en).include?(session[:locale])
-     I18n.locale = session[:locale]
-   end
+    if %w(ja en).include?(session[:locale])
+      I18n.locale = session[:locale]
+    end
   end
 end

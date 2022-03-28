@@ -5,6 +5,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @rating = Rating.new
   end
+
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
@@ -18,6 +19,7 @@ class BooksController < ApplicationController
       redirect_back(fallback_location: "/books/new")
     end
   end
+
   def index
     if sort_params.present?
       @books = Book.sort_books(sort_params)
@@ -25,28 +27,34 @@ class BooksController < ApplicationController
       @books = Book.all
     end
   end
+
   def show
     @book = Book.find(params[:id])
     @rating = Rating.find_by(book_id: params[:id])
   end
+
   def result
     @word = params[:word]
     @books = Book.search(params[:word])
   end
+
   def destroy
     @book = Book.find(params[:id]).destroy
     flash[:notice] = t('notice.deleted')
     redirect_to books_path
   end
+
   private
+
   def book_params
     params.require(:book).permit(:title, :name, genre_ids: [])
   end
+
   def sort_params
     params.permit(:sort)
   end
+
   def rating_params
     params.require(:rating).permit(:cool, :cute, :hot, :relax, :emotion, :funny, :complex, :brisk)
   end
 end
-

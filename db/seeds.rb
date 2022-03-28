@@ -1,12 +1,25 @@
 
 User.create!([
-  name: 'admin',
-  email: 'admin@admin.com',
-  password: 'admin1234',
-  password_confirmation: 'admin1234',
+  name: "admin",
+  email: "admin@admin.com",
+  password: "admin1234",
   admin: true
 ])
 
+4.times do |i|
+  User.create!([
+    name: "sample#{i + 1}",
+    email: "sample#{i + 1}@sample.com",
+    password: "sample1234",
+    admin: false
+  ])
+end
+
+Genre.create!([
+  {name: "バトル" },
+  {name: "ギャグ" },
+  {name: "恋愛" }
+])
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
