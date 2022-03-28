@@ -3,7 +3,7 @@ en:
   books:
 #一覧ページ
     index:
-      index_book: 'List of Books'
+      index_book: 'List of Manga'
 #投稿ページ
     new:
       new_book: 'Post Manga'

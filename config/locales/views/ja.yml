@@ -16,16 +16,16 @@ ja:
     favorites: 'いいね'
     genres: 'ジャンル'
     rating: '評価'
+    topic: 'おすすめ'
     top_page: 'トップページ'
     about_page: 'アバウトページ'
-    are_you_sure: "本当によろしいですか"
 #フラッシュメッセージ
   notice:
     created: '保存しました'
     posted: '投稿しました'
     deleted: '削除しました'
     updated: '更新しました'
-    set_locale: '言語設定しました'
+    set_locale: 'Changed Language'
     not_saved: '保存失敗しました'
     failed: '失敗しました'
   errors:
@@ -50,7 +50,7 @@ ja:
       new_genre: 'ジャンル登録'
       delete_genre: 'ジャンル削除'
     show:
-      show_title: '作品一覧'
+      show_title: 'ジャンル'
   ratings:
     cool: 'かっこいい'
     cute: 'かわいい'

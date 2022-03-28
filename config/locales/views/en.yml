@@ -16,6 +16,7 @@ en:
     favorites: 'Likes'
     genres: 'Genres'
     rating: 'Ratings'
+    topic: 'Topics'
     top_page: 'Top'
     about_page: 'About'
 #フラッシュメッセージ
@@ -24,7 +25,7 @@ en:
     posted: 'Posting Completed'
     deleted: 'Delete Completed'
     updated: 'Update Completed'
-    set_locale: 'Changed Language'
+    set_locale: '言語設定しました'
     not_saved: 'Submit Failed'
     failed: 'Process Failed'
   errors:
@@ -43,7 +44,7 @@ en:
 #genresのビュー
   genres:
     index:
-      index_genres: 'List of'
+      index_genres: 'Genres'
     new:
       new_title: 'Edit Genres'
       new_genre: 'Post Genres'

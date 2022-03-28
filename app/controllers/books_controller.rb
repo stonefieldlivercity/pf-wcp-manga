@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :ensure_admin, only: [:destroy]
 
   def new
     @book = Book.new
@@ -45,6 +46,12 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def ensure_admin
+    unless current_user.admin?
+      redirect_to "/"
+    end
+  end
 
   def book_params
     params.require(:book).permit(:title, :name, genre_ids: [])
