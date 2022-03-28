@@ -1,4 +1,6 @@
 class GenresController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :ensure_admin, only: [:new, :create, :destroy]
 
   def index
     @genres = Genre.all
@@ -20,7 +22,7 @@ class GenresController < ApplicationController
     if @genre.save
       flash.now[:notice] = t('notice.created')
     else
-      render 'new'
+      flash.now[:alert] = t('notice.not_saved')
     end
   end
 
@@ -30,6 +32,12 @@ class GenresController < ApplicationController
   end
 
   private
+
+  def ensure_admin
+    unless current_user.admin?
+      redirect_to "/"
+    end
+  end
 
   def genre_params
     params.require(:genre).permit(:name)

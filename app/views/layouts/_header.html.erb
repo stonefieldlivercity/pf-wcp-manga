@@ -1,8 +1,8 @@
 <div class="container-fluid px-0">
-  <nav class="navbar p-0 m-0" style="height: 150px">
-    <div class="row d-flex flex-sm-nowrap w-100 p-2 border">
-      <div class="d-flex flex-grow-1 justify-content-center border">
-        <a href="/" class="navbar-brand btn-block">
+  <nav class="navbar p-0 m-0">
+    <div class="row d-flex flex-sm-nowrap w-100 h-100 p-2 border">
+      <div class="d-flex flex-grow-1 text-center border">
+        <a href="/" class="navbar-brand btn-outline-dark btn-block mx-auto">
           <h1 class="align-self-center">MANGA!!</h1>
         </a>
       </div>
@@ -24,16 +24,24 @@
       </div>
     </div>
   </nav>
-  <nav class="navbar p-0 m-0">
+  <nav class="navbar p-0 mx-0 mt-n2">
     <div class="row d-flex flex-lg-nowrap w-100 px-0 py-2 mx-0 border">
       <div class="col my-1">
         <ul class="navbar-nav flex-sm-row text-nowrap text-center">
           <% if user_signed_in? %>
-            <li class="navbar-item flex-fill border mx-1"><%= link_to t('books.index.index_book'), books_path, class: 'btn mx-2 my-1' %></li>
-            <li class="navbar-item flex-fill border mx-1"><%= link_to t('users.show.mypage'), mypage_path(current_user), class: 'btn mx-2 my-1' %></li>
-            <li class="navbar-item flex-fill border mx-1"><%= link_to t('books.new.new_book'), new_book_path, class: 'btn mx-2 my-1' %></li>
+            <li class="navbar-item flex-fill border mx-1">
+              <%= link_to t('books.index.index_book'), books_path, class: 'btn btn-lg btn-block btn-outline-dark' %>
+            </li>
+            <li class="navbar-item flex-fill border mx-1">
+              <%= link_to t('users.show.mypage'), mypage_path(current_user), class: 'btn btn-lg btn-block btn-outline-dark' %>
+            </li>
+            <li class="navbar-item flex-fill border mx-1">
+              <%= link_to t('books.new.new_book'), new_book_path, class: 'btn btn-lg btn-block btn-outline-dark' %>
+            </li>
           <% else %>
-            <li class="navbar-item border"><%= link_to t('books.index.index_book'), books_path, class: 'btn mx-2 my-1' %></li>
+            <li class="navbar-item border">
+              <%= link_to t('books.index.index_book'), books_path, class: 'btn btn-lg btn-block btn-outline-dark' %>
+            </li>
           <% end %>
         </ul>
       </div>
@@ -41,7 +49,7 @@
       <div class="col my-1">
           <%= form_with url: result_path, method: :get, class: 'form-inline flex-sm-nowrap', local: true do |f| %>
             <%= f.text_field :word, placeholder: t('defaults.placeholder.search_for'), class: "form-control-lg flex-grow-1 border mw-25 py-4" %>
-            <%= f.submit t('defaults.search'), class: "btn btn-lg border ml-2" %>
+            <%= f.submit t('defaults.search'), class: "btn btn-lg btn-outline-dark border ml-2" %>
           <% end %>
       </div>
     </div>

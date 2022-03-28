@@ -12,10 +12,10 @@ class BooksController < ApplicationController
       @rating = Rating.new(rating_params.merge(book_id: @book.id))
       @rating.save!
       redirect_to book_path(@book)
-      #flash.now[:notice] = t('.notice.posted')
+      flash[:notice] = t('notice.posted')
     else
-      #flash.now[:alert] = t('.alert.failed')
-      render 'new'
+      flash.now[:alert] = t('notice.not_saved')
+      redirect_back(fallback_location: "/books/new")
     end
   end
   def index
@@ -35,8 +35,8 @@ class BooksController < ApplicationController
   end
   def destroy
     @book = Book.find(params[:id]).destroy
+    flash[:notice] = t('notice.deleted')
     redirect_to books_path
-    #flash[:notice] = t('.notice.deleted')
   end
   private
   def book_params

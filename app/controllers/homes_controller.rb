@@ -8,5 +8,6 @@ class HomesController < ApplicationController
   def language
     session[:locale] = params[:lang]
     redirect_back(fallback_location: "/")
+    flash[:notice] = t('notice.set_locale')
   end
 end

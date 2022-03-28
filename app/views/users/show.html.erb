@@ -1,7 +1,8 @@
 <h3 class="text-center p-3 mx-auto mt-n2 border"><%= t('.mypage') %></h3>
+<%= render 'layouts/notification' %>
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col my-2">
       <table class="table">
         <tbody>
           <tr>
@@ -24,14 +25,14 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col m-3">
-        <h5><%= t('.my_book') %></h5>
+    <div class="row my-2">
+      <div class="col px-0 m-3">
+        <h5 class="ml-3"><%= t('.my_book') %></h5>
         <%= render 'books/index', books: @books %>
       </div>
 
-      <div class="col m-3">
-        <h5><%= t('.my_favorites') %></h5>
+      <div class="col px-0 m-3">
+        <h5 class="ml-3"><%= t('.my_favorites') %></h5>
         <%= render 'books/index', books: @favo_books %>
       </div>
     </div>

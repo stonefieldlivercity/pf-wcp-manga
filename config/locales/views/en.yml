@@ -24,6 +24,9 @@ en:
     posted: 'Posting Completed'
     deleted: 'Delete Completed'
     updated: 'Update Completed'
+    set_locale: 'Changed Language'
+    not_saved: 'Submit Failed'
+    failed: 'Process Failed'
   errors:
     messages:
       not_saved:
@@ -40,7 +43,7 @@ en:
 #genresのビュー
   genres:
     index:
-      index_genres: 'List of Genres'
+      index_genres: 'List of'
     new:
       new_title: 'Edit Genres'
       new_genre: 'Post Genres'

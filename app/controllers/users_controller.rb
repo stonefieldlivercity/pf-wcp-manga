@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       redirect_to mypage_path(@user)
       flash[:notice] = t('notice.updated')
     else
-      flash.now[:alert] = t('alert.update_failed')
+      flash.now[:alert] = t('notice.not_saved')
       render "edit"
     end
   end
