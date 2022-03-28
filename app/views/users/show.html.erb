@@ -1,11 +1,40 @@
+<h3 class="text-center p-3 mx-auto mt-n2 border"><%= t('.mypage') %></h3>
+<%= render 'layouts/notification' %>
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col my-2">
       <table class="table">
         <tbody>
-          <tr><td><%= @user.name %></td></tr>
+          <tr>
+            <td><%= User.human_attribute_name(:name) %></td>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <td><%= User.human_attribute_name(:email) %></td>
+            <td><%= @user.email %></td>
+          </tr>
         </tbody>
       </table>
+
+      <div class="d-flex justify-content-center">
+        <%= link_to t('.edit_user'), edit_user_path(@user), class: 'btn btn-lg btn-outline-dark border' %>
+
+        <% if current_user.admin? %>
+          <%= link_to t('.edit_genre'), new_genre_path, class: 'btn btn-lg btn-outline-dark ml-5 border' %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row my-2">
+      <div class="col px-0 m-3">
+        <h5 class="ml-3"><%= t('.my_book') %></h5>
+        <%= render 'books/index', books: @books %>
+      </div>
+
+      <div class="col px-0 m-3">
+        <h5 class="ml-3"><%= t('.my_favorites') %></h5>
+        <%= render 'books/index', books: @favo_books %>
+      </div>
     </div>
   </div>
 </div>

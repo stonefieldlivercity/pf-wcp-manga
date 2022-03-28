@@ -1,0 +1,3 @@
+$('.tag-name').val('');
+$('.tag-index').html("<%= j(render 'genres/admin_index', genres: @genres) %>");
+$('#tag-notice').html("<%= j(render 'layouts/notification') %>");

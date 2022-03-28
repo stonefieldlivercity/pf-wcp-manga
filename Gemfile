@@ -59,6 +59,7 @@ gem 'devise'
 gem 'chartkick'
 gem 'rubocop-airbnb'
 gem 'dotenv-rails'
-group :production do 
+gem 'rails-i18n', '~> 6.0'
+group :production do
   gem 'mysql2'
 end

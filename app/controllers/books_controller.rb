@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
+
   def new
     @book = Book.new
     @rating = Rating.new
@@ -7,17 +9,23 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
-    @rating = @book.ratings.new(rating_params)
     if @book.save
-      @rating.save
+      @rating = Rating.new(rating_params.merge(book_id: @book.id))
+      @rating.save!
       redirect_to book_path(@book)
+      flash[:notice] = t('notice.posted')
     else
-      render 'new'
+      flash.now[:alert] = t('notice.not_saved')
+      redirect_back(fallback_location: "/books/new")
     end
   end
 
   def index
-    @books = Book.all
+    if sort_params.present?
+      @books = Book.sort_books(sort_params)
+    else
+      @books = Book.all
+    end
   end
 
   def show
@@ -26,14 +34,24 @@ class BooksController < ApplicationController
   end
 
   def result
-    @books = Book.search(params[:word])
     @word = params[:word]
+    @books = Book.search(params[:word])
+  end
+
+  def destroy
+    @book = Book.find(params[:id]).destroy
+    flash[:notice] = t('notice.deleted')
+    redirect_to books_path
   end
 
   private
 
   def book_params
-    params.require(:book).permit(:title, :name, :genre_id)
+    params.require(:book).permit(:title, :name, genre_ids: [])
+  end
+
+  def sort_params
+    params.permit(:sort)
   end
 
   def rating_params

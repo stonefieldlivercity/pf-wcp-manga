@@ -1,2 +1,33 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="container px-0">
+  <%= render 'layouts/notification' %>
+  <div class="row justify-content-center">
+    <div class="col-md-4 align-self-start mx-md-2 my-3 py-4 border">
+      <%= render 'genres/index', genres: @genres %>
+    </div>
+
+    <div class="col-md-7 my-3">
+      <% @books.each do |b| %>
+        <div class="card mb-1">
+          <div class="row no-gutters justify-content-around p-3 border">
+            <div class="col-lg-4 align-self-center pb-5 border">
+              <div class="card-body ml-3">
+                <h5 class="card-title">
+                  <%= link_to b.title, book_path(b.id) %>
+                </h5>
+                <h5 class="card-subtitle"><%= b.name %></h5>
+                <span class=<%= "favorite-" + b.id.to_s %> >
+                  <%= render 'favorites/form', book: b %>
+                </span>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <%= render 'ratings/chart', rating: b.rating %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

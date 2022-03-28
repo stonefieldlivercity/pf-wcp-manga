@@ -1,0 +1,22 @@
+#usersのビューの英語設定
+en:
+  users:
+#編集ページ
+    edit:
+      back: 'Back'
+      edit_user: 'Edit User'
+      cancel_my_account: 'Delete User'
+      unhappy: 'Cancel your acount？'
+      confirm: 'Your post will also be deleted'
+      leave_blank_if_you_don_t_want_to_change_it: 'If left blank, do not change'
+      we_need_your_current_password_to_confirm_your_changes: 'Please enter your current password for confirmation'
+      currently_waiting_confirmation_for_email: 'Wait for confirmation %{email}'
+      leave_blank_if_you_don_t_want_to_change_it: 'If left blank, do not change'
+#詳細ページ
+    show:
+      mypage: 'Mypage'
+      edit_user: 'User Edit'
+      edit_genre: 'Genre Edit'
+      my_book: 'List of my Posts'
+      my_favorites: 'List of my Likes'
+

@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_11_062822) do
+ActiveRecord::Schema.define(version: 2022_03_20_013049) do
 
   create_table "books", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "genre_id"
     t.string "title"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -48,10 +47,20 @@ ActiveRecord::Schema.define(version: 2022_03_11_062822) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "genre_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_tags_on_book_id"
+    t.index ["genre_id"], name: "index_tags_on_genre_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.boolean "admin", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -61,4 +70,6 @@ ActiveRecord::Schema.define(version: 2022_03_11_062822) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tags", "books"
+  add_foreign_key "tags", "genres"
 end
