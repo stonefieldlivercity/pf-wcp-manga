@@ -69,6 +69,8 @@ ja:
         sign_in: 'ログイン'
         sign_in_with_provider: '%{provider}でログイン'
         sign_up: 'アカウント登録'
+        already_have: '既にアカウントをお持ちなら、'
+        not_have_yet: 'アカウントをお持ちでない場合、'
       minimum_password_length: '（%{count}字以上）'
 #エラーメッセージ
   errors:

@@ -1,11 +1,11 @@
-
+#adminユーザー
 User.create!([
   name: "admin",
   email: "admin@admin.com",
   password: "admin1234",
   admin: true
 ])
-
+#sampleユーザー
 4.times do |i|
   User.create!([
     name: "sample#{i + 1}",
@@ -14,7 +14,7 @@ User.create!([
     admin: false
   ])
 end
-
+#sampleジャンル
 Genre.create!([
   {name: "バトル" },
   {name: "ギャグ" },

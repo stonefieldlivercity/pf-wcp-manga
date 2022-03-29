@@ -1,16 +1,19 @@
+<!--トップページ-->
 <div class="container px-0">
   <%= render 'layouts/notification' %>
   <div class="row justify-content-around">
+<!--ジャンル一覧-->
     <div class="col-md-4 align-self-start mx-md-2 my-3 py-4 border">
       <%= render 'genres/index', genres: @genres %>
     </div>
-
+<!--いいねの多い順の上から３つ表示-->
     <div class="col-md-7 my-3">
       <h4 class="text-center py-3 border"><%= t('defaults.topic') %></h4>
       <% @books.each do |b| %>
         <div class="card mb-1">
           <div class="row no-gutters justify-content-around p-3 border">
             <div class="col-lg-4 align-self-center pb-5 border">
+<!--基本情報部分-->
               <div class="card-body ml-3">
                 <h5 class="card-title">
                   <%= link_to b.title, book_path(b.id) %>
@@ -21,6 +24,7 @@
                 </span>
               </div>
             </div>
+<!--レーダーチャート部分-->
             <div class="col-lg-7">
               <%= render 'ratings/chart', rating: b.rating %>
             </div>

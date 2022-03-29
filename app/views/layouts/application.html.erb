@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PfManga</title>
+    <title>PF Manga</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,7 +16,7 @@
     </header>
     <main class="mb-3">
       <%= yield %>
-
+<!--ページ上部へのスクロール-->
       <div id="back_top" class="border">
       <a href="#" class="btn btn-block btn-outline-dark">
         <p class="align-self-center"><%= t('defaults.back_top') %></p>
@@ -33,6 +33,7 @@
       });
     </script>
     </main>
+
     <footer>
       <%= render "layouts/footer" %>
     </footer>

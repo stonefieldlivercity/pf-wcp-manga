@@ -8,9 +8,6 @@ class UsersController < ApplicationController
     @favo_books = Book.find(favorites)
   end
 
-  def edit
-  end
-
   def update
     if @user.update(user_params)
       redirect_to mypage_path(@user)
@@ -26,7 +23,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :pasword, :password_confirmation)
   end
-
+#現在のユーザーが自分自身か判別
   def ensure_correct_user
     @user = User.find(params[:id])
     unless @user == current_user

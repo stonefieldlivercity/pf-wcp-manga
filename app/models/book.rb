@@ -4,15 +4,15 @@ class Book < ApplicationRecord
   has_many :genres, through: :tags, dependent: :destroy
   has_one :rating, dependent: :destroy
   has_many :favorites, dependent: :destroy
-
+#いいねの有無を判別
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-
+#検索の条件指定
   def self.search(word)
     where(["title like? OR name like?", "%#{word}%", "#{word}"])
   end
-
+#投稿の並べ替えを指定
   def self.sort_books(sort)
     case sort[:sort]
     when 'updated_at_desc'

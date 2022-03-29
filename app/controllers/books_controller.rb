@@ -46,7 +46,7 @@ class BooksController < ApplicationController
   end
 
   private
-
+#管理者権限を判別
   def ensure_admin
     unless current_user.admin?
       redirect_to "/"

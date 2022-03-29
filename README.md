@@ -25,7 +25,8 @@
 　自分の知らない好きな漫画を極力内容は知らずに探したい時。自分の好きな漫画を紹介したい時。
 
 ## 設計書
-
+  #### ER図/UI_FLOW図
+  <https://drive.google.com/file/d/14abT1jjSaE3n6pKJqnCs5DioOJjvUjWT/view?usp=sharing>
 
 ## チャレンジ要素一覧
 　<https://docs.google.com/spreadsheets/d/11VQeKj5tcjMpMTTD9L5LZ-yeFIbaTjnAn1S5HvSnbWM/edit?usp=sharing>
@@ -39,5 +40,4 @@
 - IDE：Cloud9
 
 ## 使用素材
-　使用検討中です
 　作品の画像等著作権に配慮して使用しません

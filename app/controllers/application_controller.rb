@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   protected
-
+#サインイン、サインアウト後の遷移先をtopページに設定
   def after_sign_in_path_for(resource)
     root_path
   end
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
+#言語設定を認識
   def set_locale
     if %w(ja en).include?(session[:locale])
       I18n.locale = session[:locale]

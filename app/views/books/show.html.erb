@@ -1,3 +1,4 @@
+<!--作品詳細ページ-->
 <h3 class="text-center p-3 mx-auto mt-n2 border"><%= t('.show_book') %></h3>
 <%= render 'layouts/notification' %>
 <div class="container mb-3">
@@ -29,14 +30,14 @@
           </tr>
         </tbody>
       </table>
-
+<!--adminユーザーの場合に表示-->
       <% if user_signed_in? && current_user.admin? %>
         <%= link_to book_path(@book), method: :delete, data: { confirm: t('defaults.are_you_sure') } do %>
           <span class="btn btn-block btn-outline-danger"><%= t('defaults.delete') %></span>
         <% end %>
       <% end %>
     </div>
-
+<!--レーダーチャート部分-->
     <div class="col-md-6 p-3">
       <%= render 'ratings/chart', rating: @rating %>
     </div>
