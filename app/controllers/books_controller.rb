@@ -4,15 +4,13 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @rating = Rating.new
   end
 
   def create
-    @book = Book.new(book_params)
-    @book.user_id = current_user.id
+    @book = Book.new(book_params.merge(user_id: current_user.id))
     if @book.save
-      @rating = Rating.new(rating_params.merge(book_id: @book.id))
-      @rating.save!
+      @rating = Rating.new(rating_params.merge(user_id: current_user.id, book_id: @book.id))
+      @rating.save
       redirect_to book_path(@book)
       flash[:notice] = t('notice.posted')
     else
@@ -31,9 +29,9 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @rating = Rating.find_by(book_id: params[:id])
+    p @rating = Rating.find_by(book_id: params[:id])
   end
-
+#検索結果ページ
   def result
     @word = params[:word]
     @books = Book.search(params[:word])

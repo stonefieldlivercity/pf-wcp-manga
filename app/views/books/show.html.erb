@@ -30,6 +30,9 @@
           </tr>
         </tbody>
       </table>
+      <% if user_signed_in? %>
+        <%= link_to t('ratings.new.title'), new_book_rating_path(@rating), class: 'btn btn-block btn-outline-dark mt-5 border' %>
+      <% end %>
 <!--adminユーザーの場合に表示-->
       <% if user_signed_in? && current_user.admin? %>
         <%= link_to book_path(@book), method: :delete, data: { confirm: t('defaults.are_you_sure') } do %>
@@ -39,7 +42,11 @@
     </div>
 <!--レーダーチャート部分-->
     <div class="col-md-6 p-3">
-      <%= render 'ratings/chart', rating: @rating %>
+      <% if user_signed_in? %>
+        <%= render 'ratings/chart', rating: @rating, book: @book %>
+      <% else %>
+        <%= render 'ratings/altchart', rating: @rating, book: @book %>
+      <% end %>
     </div>
   </div>
 </div>

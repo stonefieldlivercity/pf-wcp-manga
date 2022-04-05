@@ -15,8 +15,10 @@ en:
       search_for: 'Title or Author'
     favorites: 'Likes'
     genres: 'Genres'
-    rating: 'Ratings'
+    my_rating: 'My Ratings'
+    average_rating: 'average'
     topic: 'Topics'
+    back: 'Back'
     top_page: 'Top'
     about_page: 'About'
 #フラッシュメッセージ
@@ -60,6 +62,8 @@ en:
     funny: 'Funny'
     complex: 'Complex'
     brisk: 'Simplex'
+    new:
+      title: 'Post My Rating'
 
 
 

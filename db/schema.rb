@@ -34,7 +34,8 @@ ActiveRecord::Schema.define(version: 2022_03_20_013049) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "book_id"
+    t.integer "book_id", null: false
+    t.integer "user_id", null: false
     t.float "cool"
     t.float "cute"
     t.float "hot"
@@ -45,6 +46,8 @@ ActiveRecord::Schema.define(version: 2022_03_20_013049) do
     t.float "brisk"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_ratings_on_book_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -70,6 +73,8 @@ ActiveRecord::Schema.define(version: 2022_03_20_013049) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ratings", "books"
+  add_foreign_key "ratings", "users"
   add_foreign_key "tags", "books"
   add_foreign_key "tags", "genres"
 end

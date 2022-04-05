@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'result' => 'books#result'
   resources :books, only: [:new, :create, :show, :index, :destroy] do
     resource :favorites, only: [:create, :destroy]
+    resources :ratings, only: [:new, :create, :destroy]
   end
-  resource :ratings, only: [:create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

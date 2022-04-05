@@ -9,7 +9,7 @@
 <!--いいねの多い順の上から３つ表示-->
     <div class="col-md-7 my-3">
       <h4 class="text-center py-3 border"><%= t('defaults.topic') %></h4>
-      <% @books.each do |b| %>
+      <% @book.each do |b| %>
         <div class="card mb-1">
           <div class="row no-gutters justify-content-around p-3 border">
             <div class="col-lg-4 align-self-center pb-5 border">
@@ -26,7 +26,11 @@
             </div>
 <!--レーダーチャート部分-->
             <div class="col-lg-7">
-              <%= render 'ratings/chart', rating: b.rating %>
+              <% if user_signed_in? %>
+                <%= render 'ratings/chart', book: b, rating: @rating %>
+              <% else %>
+                <%= render 'ratings/altchart', book: b, rating: @rating %>
+              <% end %>
             </div>
           </div>
         </div>
