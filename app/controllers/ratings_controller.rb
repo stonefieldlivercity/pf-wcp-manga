@@ -8,9 +8,15 @@ class RatingsController < ApplicationController
 
   def create
     @rating = @book.ratings.new(rating_params.merge(user_id: current_user.id))
-    if @rating.save
-      redirect_to book_path(@book)
-      flash[:notice] = t('notice.posted')
+    rated_count = Rating.where(user_id: current_user.id)
+    if @rating.valid?
+      if rated_count.count < 1
+        @rating.save!
+        redirect_to book_path(@book)
+        flash[:notice] = t('notice.posted')
+      else
+        redirect_back(fallback_location: 'new')
+      end
     else
       flash.now[:alert] = t('notice.not_saved')
       redirect_back(fallback_location: 'new')
