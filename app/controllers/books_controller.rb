@@ -29,7 +29,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    p @rating = Rating.find_by(book_id: params[:id])
+    @rating = Rating.find_by(book_id: params[:id])
   end
 #検索結果ページ
   def result
