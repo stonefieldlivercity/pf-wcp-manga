@@ -34,7 +34,9 @@
       <% if user_signed_in? && @book.rated_by?(current_user) %>
         <%= link_to t('ratings.new.title'), new_book_rating_path(@book), class: 'btn btn-block btn-outline-dark mt-5 border' %>
       <% elsif user_signed_in? && !@book.rated_by?(current_user) %>
-        <%= link_to t('ratings.show.destroy'), book_rating_path(@book), class: 'btn btn-block btn-outline-dark mt-5 border' %>
+        <%= link_to book_rating_path(@book, @rating), method: :delete, data: { confirm: t('defaults.are_you_sure') }, class: 'btn btn-block btn-outline-dark mt-5 border' do %>
+          <%= t('ratings.show.destroy') %>
+        <% end %>
       <% end %>
 <!--adminユーザーの場合に表示-->
       <% if user_signed_in? && current_user.admin? %>

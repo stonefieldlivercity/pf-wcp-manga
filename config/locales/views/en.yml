@@ -30,6 +30,7 @@ en:
     set_locale: '言語設定しました'
     not_saved: 'Submit Failed'
     failed: 'Process Failed'
+    alredy_taken: 'Alredy Posted Your ratings'
   errors:
     messages:
       not_saved:

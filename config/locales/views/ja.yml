@@ -30,6 +30,7 @@ ja:
     set_locale: 'Changed Language'
     not_saved: '保存失敗しました'
     failed: '失敗しました'
+    alredy_taken: "既に評価しています"
   errors:
     messages:
       not_saved:

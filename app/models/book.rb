@@ -9,7 +9,7 @@ class Book < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-
+# ユーザーが評価を行なったかの判別
   def rated_by?(user)
     ratings.where(user_id: user.id).empty?
   end
