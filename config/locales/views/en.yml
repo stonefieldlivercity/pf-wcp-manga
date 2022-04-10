@@ -15,7 +15,10 @@ en:
       search_for: 'Title or Author'
     favorites: 'Likes'
     genres: 'Genres'
-    rating: 'Ratings'
+    my_rating: 'My Ratings'
+    average_rating: 'average'
+    topic: 'Topics'
+    back: 'Back'
     top_page: 'Top'
     about_page: 'About'
 #フラッシュメッセージ
@@ -24,9 +27,10 @@ en:
     posted: 'Posting Completed'
     deleted: 'Delete Completed'
     updated: 'Update Completed'
-    set_locale: 'Changed Language'
+    set_locale: '言語設定しました'
     not_saved: 'Submit Failed'
     failed: 'Process Failed'
+    alredy_taken: 'Alredy Posted Your ratings'
   errors:
     messages:
       not_saved:
@@ -43,7 +47,7 @@ en:
 #genresのビュー
   genres:
     index:
-      index_genres: 'List of'
+      index_genres: 'Genres'
     new:
       new_title: 'Edit Genres'
       new_genre: 'Post Genres'
@@ -59,6 +63,10 @@ en:
     funny: 'Funny'
     complex: 'Complex'
     brisk: 'Simplex'
+    new:
+      title: 'Post My Rating'
+    show:
+      destroy: "Delete My Ratings"
 
 
 

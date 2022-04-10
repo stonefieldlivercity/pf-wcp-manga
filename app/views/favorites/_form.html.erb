@@ -1,3 +1,4 @@
+<!--いいねボタン部分-->
 <% if user_signed_in? %>
   <% if book.favorited_by?(current_user) %>
     <%= link_to book_favorites_path(book), method: :delete, remote: true do %>
@@ -8,6 +9,7 @@
       <%= book.favorites.count %><%= t('favorites.like') %>
     <% end %>
   <% end %>
+<!--ログインしていない場合の表示-->
 <% else %>
   <%= book.favorites.count %><%= t('favorites.liked') %>
 <% end %>

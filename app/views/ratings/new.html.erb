@@ -1,0 +1,40 @@
+<!--評価ページ-->
+<h3 class="text-center p-3 mx-auto mt-n2 border"><%= t('.title') %></h3>
+<%= render 'layouts/notification' %>
+<div class="container my-3">
+  <div class="row justify-content-center">
+    <div class="col-md-5 p-2 m-1 border">
+<!--基本情報-->
+      <table class="table">
+        <tbody>
+          <tr>
+            <th><%= Book.human_attribute_name(:title) %></th>
+            <td><%= @book.title %></td>
+          </tr>
+          <tr>
+            <th><%= Book.human_attribute_name(:name) %></th>
+            <td><%= @book.name %></td>
+          </tr>
+          <tr>
+            <th><%= t('fefaults.genres') %></th>
+            <td>
+              <% @book.genres.each do |b| %>
+                <%= b.name %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to t('defaults.back'), books_path, class: 'btn btn-outline-dark mt-5 border' %>
+    </div>
+    <div class="col-md-6 px-3 py-5 m-1 border">
+<!--投稿フォーム-->
+      <%= form_with model: @rating, url: book_ratings_path(@book), local: true do |f| %>
+        <%= render 'ratings/form', rating: @rating %>
+        <div class="d-flex justify-content-center mt-5">
+          <%= f.submit t('defaults.create'), class: 'btn btn-outline-dark btn-block border' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

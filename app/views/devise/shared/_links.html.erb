@@ -1,9 +1,10 @@
+<!--アカウント登録ページとログインページの遷移-->
 <%- if controller_name != 'sessions' %>
-  既にアカウントをお持ちなら<%= link_to t('.sign_in'), new_session_path(resource_name) %>してください
+  <p><%= t('.already_have') %></p> <%= link_to t('.sign_in'), new_session_path(resource_name) %>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  アカウントをお持ちでない場合、<%= link_to t('.sign_up'), new_registration_path(resource_name) %>してください
+  <p><%= t('.not_have_yet') %></p> <%= link_to t('.sign_up'), new_registration_path(resource_name) %>
 <% end %>
 
 

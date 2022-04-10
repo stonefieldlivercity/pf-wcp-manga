@@ -1,12 +1,14 @@
+<!--検索結果表示ページ-->
 <h3 class="text-center py-3 mx-auto mt-n2 border">
   <%= t('.search_for') %> "<%= @word %>"
 </h3>
 <div class="container-fuild mx-5 my-3">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-lg-10 mx-auto">
-      <%= render 'books/sort' %>
-
-      <%= render 'books/index', books: @books %>
+<!--作品一覧-->
+      <div id="result_index">
+        <%= render 'books/index', books: @books %>
+      </div>
     </div>
   </div>
 </div>

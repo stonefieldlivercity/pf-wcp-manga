@@ -1,3 +1,4 @@
+<!--ヘッダー-->
 <div class="container-fluid px-0">
   <nav class="navbar p-0 m-0">
     <div class="row d-flex flex-sm-nowrap w-100 h-100 p-2 border">
@@ -6,6 +7,7 @@
           <h1 class="align-self-center">MANGA!!</h1>
         </a>
       </div>
+<!--ログインの有無で分岐-->
       <div class="text-nowrap ml-2">
         <ul class="nav flex-sm-column">
           <% if user_signed_in? %>
@@ -24,6 +26,7 @@
       </div>
     </div>
   </nav>
+<!--ログインの有無で分岐-->
   <nav class="navbar p-0 mx-0 mt-n2">
     <div class="row d-flex flex-lg-nowrap w-100 px-0 py-2 mx-0 border">
       <div class="col my-1">
@@ -45,10 +48,10 @@
           <% end %>
         </ul>
       </div>
-
+<!--検索フォーム-->
       <div class="col my-1">
           <%= form_with url: result_path, method: :get, class: 'form-inline flex-sm-nowrap', local: true do |f| %>
-            <%= f.text_field :word, placeholder: t('defaults.placeholder.search_for'), class: "form-control-lg flex-grow-1 border mw-25 py-4" %>
+            <%= f.text_field :word, required: true, placeholder: t('defaults.placeholder.search_for'), class: "form-control-lg flex-grow-1 border mw-25 py-4" %>
             <%= f.submit t('defaults.search'), class: "btn btn-lg btn-outline-dark border ml-2" %>
           <% end %>
       </div>

@@ -1,4 +1,4 @@
-<!--レーダーチャート-->
+<!--未ログインのレーダーチャート-->
 <canvas id="myRadarChart_<%=book.id%>" class="w-100 h-100"></canvas>
 <script>
   var ctx = document.getElementById("myRadarChart_<%=book.id%>");
@@ -19,25 +19,6 @@
       ],
 
       datasets: [
-        {
-/*グラフ全体のラベル*/
-          label: "<%= t('defaults.my_rating') %>",
-          backgroundColor: 'rgba(120,252,120,0.5)',
-          borderColor: 'rgba(120,252,120,1)',
-          borderWidth: 5,
-          fill: true,
-/*グラフで表示するデータ（上から時計回り）*/
-          data: [
-            <%= rating.cool %>,
-            <%= rating.cute %>,
-            <%= rating.hot %>,
-            <%= rating.relax %>,
-            <%= rating.emotion %>,
-            <%= rating.funny %>,
-            <%= rating.complex %>,
-            <%= rating.brisk %>
-          ]
-        },
         {
 /*グラフ全体のラベル*/
           label: "<%= t('defaults.average_rating') %>",

@@ -1,6 +1,7 @@
+<!--作品詳細ページ-->
 <h3 class="text-center p-3 mx-auto mt-n2 border"><%= t('.show_book') %></h3>
 <%= render 'layouts/notification' %>
-<div class="container">
+<div class="container mb-3">
   <div class="row">
     <div class="col-md-6">
       <table class="table">
@@ -29,17 +30,32 @@
           </tr>
         </tbody>
       </table>
-
+<!--現在のユーザーが既に投稿をしているか判別-->
+      <% if user_signed_in? && @book.rated_by?(current_user) %>
+        <%= link_to t('ratings.new.title'), new_book_rating_path(@book), class: 'btn btn-block btn-outline-dark mt-5 border' %>
+      <% elsif user_signed_in? && !@book.rated_by?(current_user) %>
+        <%= link_to book_rating_path(@book, @rating), method: :delete, data: { confirm: t('defaults.are_you_sure') }, class: 'btn btn-block btn-outline-dark mt-5 border' do %>
+          <%= t('ratings.show.destroy') %>
+        <% end %>
+      <% end %>
+<!--adminユーザーの場合に表示-->
       <% if user_signed_in? && current_user.admin? %>
         <%= link_to book_path(@book), method: :delete, data: { confirm: t('defaults.are_you_sure') } do %>
-          <span class="btn btn-block btn-outline-danger"><%= t('defaults.delete') %></span>
+          <span class="btn btn-block btn-outline-danger mt-5"><%= t('.delete') %></span>
         <% end %>
       <% end %>
     </div>
-
+<!--レーダーチャート部分-->
     <div class="col-md-6 p-3">
-      <%= render 'ratings/chart', rating: @rating %>
+      <% if user_signed_in? && !@book.rated_by?(current_user) %>
+        <%= render 'ratings/chart', rating: @rating, book: @book %>
+      <% else %>
+        <%= render 'ratings/altchart', book: @book %>
+      <% end %>
     </div>
+  </div>
+  <div class="row d-flex justify-content-end mb-5">
+    <%= link_to t('books.index.index_book'), books_path, class: 'btn btn-outline-dark border' %>
   </div>
 </div>
 

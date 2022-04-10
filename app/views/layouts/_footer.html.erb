@@ -1,3 +1,4 @@
+<!--フッター-->
 <div class="container-fuild h-100 border">
   <div class="row h-100">
     <div class="col-5 col-md-8">
@@ -6,6 +7,7 @@
       </h2>
     </div>
     <div class="col-7 col-md-4 flex-column mt-1 text-center">
+<!--言語選択-->
       <div class="footer-nav m-1 border">
         <% if session[:locale] == "ja" || session[:locale].blank? %>
           <%= link_to "/homes/language/en" do %>

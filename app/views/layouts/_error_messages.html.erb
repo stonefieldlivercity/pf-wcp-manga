@@ -1,5 +1,6 @@
+<!--エラーメッセージ-->
 <% if resource.errors.any? %>
-  <div id="error_explanation" class="row px-5 py-2 m-3 alert alert-danger border" role="alert">
+  <div id="error_explanation" class="row px-5 py-2 alert alert-danger" role="alert">
     <h5 class="px-2 py-2 m-2 alert-heading">
       <%= I18n.t("errors.messages.not_saved", count: resource.errors.count) %>
     </h5>
