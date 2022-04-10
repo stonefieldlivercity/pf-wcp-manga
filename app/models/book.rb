@@ -2,12 +2,18 @@ class Book < ApplicationRecord
   belongs_to :user
   has_many :tags, dependent: :destroy
   has_many :genres, through: :tags, dependent: :destroy
-  has_one :rating, dependent: :destroy
+  has_many :ratings, dependent: :destroy
   has_many :favorites, dependent: :destroy
+
 #いいねの有無を判別
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+# ユーザーが評価を行なったかの判別
+  def rated_by?(user)
+    ratings.where(user_id: user.id).empty?
+  end
+
 #検索の条件指定
   def self.search(word)
     where(["title like? OR name like?", "%#{word}%", "#{word}"])

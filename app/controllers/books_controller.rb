@@ -1,26 +1,25 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
+#ログインの有無の判別
+  before_action :authenticate_user!, except: [:show, :index, :result]
+#管理者ユーザーの判別
   before_action :ensure_admin, only: [:destroy]
-
+# 新規投稿ページ
   def new
     @book = Book.new
-    @rating = Rating.new
   end
-
+# 新規投稿機能
   def create
-    @book = Book.new(book_params)
-    @book.user_id = current_user.id
+    @book = Book.new(book_params.merge(user_id: current_user.id))
     if @book.save
-      @rating = Rating.new(rating_params.merge(book_id: @book.id))
-      @rating.save!
+      @rating = Rating.new(rating_params.merge(user_id: current_user.id, book_id: @book.id))
+      @rating.save
       redirect_to book_path(@book)
       flash[:notice] = t('notice.posted')
     else
-      flash.now[:alert] = t('notice.not_saved')
-      redirect_back(fallback_location: "/books/new")
+      render "new"
     end
   end
-
+# マンガ一覧ページ
   def index
     if sort_params.present?
       @books = Book.sort_books(sort_params)
@@ -28,17 +27,21 @@ class BooksController < ApplicationController
       @books = Book.all
     end
   end
-
+# マンガ詳細ページ
   def show
     @book = Book.find(params[:id])
-    @rating = Rating.find_by(book_id: params[:id])
+    if user_signed_in?
+      @rating = Rating.find_by(book_id: params[:id], user_id: current_user.id)
+    else
+      @rating = Rating.find_by(book_id: params[:id])
+    end
   end
-
+#検索結果ページ
   def result
     @word = params[:word]
     @books = Book.search(params[:word])
   end
-
+# 投稿削除ページ
   def destroy
     @book = Book.find(params[:id]).destroy
     flash[:notice] = t('notice.deleted')
@@ -52,7 +55,7 @@ class BooksController < ApplicationController
       redirect_to "/"
     end
   end
-
+# ストロングパラメータ
   def book_params
     params.require(:book).permit(:title, :name, genre_ids: [])
   end

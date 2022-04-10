@@ -1,10 +1,10 @@
 class HomesController < ApplicationController
-  
+
   def top
     @genres = Genre.all
-#いいねの多い投稿順の上から３番目まで表示    
-    @books = Book.limit(3).sort_books(sort: 'favorited_desc')
-    @rating = Rating.find_by(book_id: @books.map(&:id))
+#いいねの多い投稿順の上から３番目まで表示
+    @book = Book.limit(3).sort_books(sort: 'favorited_desc')
+    @rating = Rating.find_by(book_id: @book.map(&:id))
   end
 #言語設定を動的に変更
   def language

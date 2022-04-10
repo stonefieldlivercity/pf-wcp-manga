@@ -11,6 +11,7 @@ ja:
 #詳細ページ
     show:
       show_book: 'マンガ詳細'
+      delete: 'マンガ削除'
 #検索結果ページ
     result:
       search_for: '検索結果'

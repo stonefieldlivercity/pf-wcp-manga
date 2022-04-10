@@ -15,8 +15,10 @@ ja:
       search_for: '作品名or作者名'
     favorites: 'いいね'
     genres: 'ジャンル'
-    rating: '評価'
+    my_rating: '自分の評価'
+    average_rating: '平均評価'
     topic: 'おすすめ'
+    back: '戻る'
     top_page: 'トップページ'
     about_page: 'アバウトページ'
 #フラッシュメッセージ
@@ -28,6 +30,7 @@ ja:
     set_locale: 'Changed Language'
     not_saved: '保存失敗しました'
     failed: '失敗しました'
+    alredy_taken: "既に評価しています"
   errors:
     messages:
       not_saved:
@@ -60,6 +63,10 @@ ja:
     funny: '笑える'
     complex: '頭を使う'
     brisk: '爽快'
+    new:
+      title: "評価する"
+    show:
+      destroy: "評価を削除"
 
 
 

@@ -15,8 +15,10 @@ en:
       search_for: 'Title or Author'
     favorites: 'Likes'
     genres: 'Genres'
-    rating: 'Ratings'
+    my_rating: 'My Ratings'
+    average_rating: 'average'
     topic: 'Topics'
+    back: 'Back'
     top_page: 'Top'
     about_page: 'About'
 #フラッシュメッセージ
@@ -28,6 +30,7 @@ en:
     set_locale: '言語設定しました'
     not_saved: 'Submit Failed'
     failed: 'Process Failed'
+    alredy_taken: 'Alredy Posted Your ratings'
   errors:
     messages:
       not_saved:
@@ -60,6 +63,10 @@ en:
     funny: 'Funny'
     complex: 'Complex'
     brisk: 'Simplex'
+    new:
+      title: 'Post My Rating'
+    show:
+      destroy: "Delete My Ratings"
 
 
 

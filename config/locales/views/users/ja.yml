@@ -3,7 +3,6 @@ ja:
   users:
 #編集ページ
     edit:
-      back: '戻る'
       edit_user: 'アカウント編集'
       cancel_my_account: 'アカウント削除'
       unhappy: 'アカウント削除しますか？'
