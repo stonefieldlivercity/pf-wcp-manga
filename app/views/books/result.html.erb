@@ -5,10 +5,31 @@
 <div class="container-fuild mx-5 my-3">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-lg-10 mx-auto">
-<!--並べ替え-->
-      <%= render 'books/sort' %>
+<!--作品一覧の並び替え部分-->
+      <ul class="nav justify-content-center flex-nowrap my-2">
+<!--投稿が新しい順-->
+        <li class="nav-item mx-1 border">
+          <%= link_to result_path(sort: 'updated_at_desc'), class: 'nav-link btn btn-block btn-outline-dark', remote: true do %>
+            <%= t('books.sort.updated_at_desc') %>
+          <% end %>
+        </li>
+<!--投稿が古い順-->
+        <li class="nav-item mx-1 border">
+          <%= link_to result_path(sort: 'updated_at_asc'), class: 'nav-link btn btn-block btn-outline-dark', remote: true do %>
+            <%= t('books.sort.updated_at_asc') %>
+          <% end %>  
+        </li>
+<!--いいねが多い順-->
+        <li class="nav-item mx-1 border">
+          <%= link_to result_path(sort: 'favorited_desc'), class: 'nav-link btn btn-block btn-outline-dark', remote: true do %>
+            <%= t('books.sort.favorited_desc') %>
+          <% end %>  
+        </li>
+      </ul>
 <!--作品一覧-->
-      <%= render 'books/index', books: @books %>
+      <div id="result_index">
+        <%= render 'books/index', books: @books %>
+      </div>
     </div>
   </div>
 </div>

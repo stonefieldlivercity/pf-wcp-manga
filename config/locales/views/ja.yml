@@ -64,6 +64,8 @@ ja:
     brisk: '爽快'
     new:
       title: "評価する"
+    show:
+      destroy: "評価を削除"
 
 
 

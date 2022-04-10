@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: [:show, :index, :result]
   before_action :ensure_admin, only: [:destroy]
-
+# 新規投稿ページ
   def new
     @book = Book.new
   end
@@ -14,8 +14,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book)
       flash[:notice] = t('notice.posted')
     else
-      flash.now[:alert] = t('notice.not_saved')
-      redirect_back(fallback_location: "/books/new")
+      render "new"
     end
   end
 
@@ -29,12 +28,16 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    p @rating = Rating.find_by(book_id: params[:id])
+    if user_signed_in?
+      @rating = Rating.find_by(book_id: params[:id], user_id: current_user.id)
+    else
+      @rating = Rating.find_by(book_id: params[:id])
+    end
   end
 #検索結果ページ
   def result
     @word = params[:word]
-    @books = Book.search(params[:word])
+    @books = Book.search(params[:word]).sort_books(sort_params)
   end
 
   def destroy

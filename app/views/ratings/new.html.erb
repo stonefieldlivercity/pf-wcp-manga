@@ -4,6 +4,7 @@
 <div class="container my-3">
   <div class="row justify-content-center">
     <div class="col-md-5 p-2 m-1 border">
+<!--基本情報-->
       <table class="table">
         <tbody>
           <tr>
@@ -24,9 +25,10 @@
           </tr>
         </tbody>
       </table>
-      <%= link_to t('defaults.back'), book_path(@book), class: 'btn btn-outline-dark mt-5 border' %>
+      <%= link_to t('defaults.back'), books_path, class: 'btn btn-outline-dark mt-5 border' %>
     </div>
     <div class="col-md-6 px-3 py-5 m-1 border">
+<!--投稿フォーム-->
       <%= form_with model: @rating, url: book_ratings_path(@book), local: true do |f| %>
         <%= render 'ratings/form', rating: @rating %>
         <div class="d-flex justify-content-center mt-5">
