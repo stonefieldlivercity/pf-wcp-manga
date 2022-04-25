@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :books, dependent: :destroy
-  has_one :rating, dependent: :destroy
+  has_many :ratings, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true

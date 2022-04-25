@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  devise_scope :user do
+    get 'users', to: 'devise/registrations#new'
+  end
+
   root to: "homes#top"
   get "/homes/about" => "homes#about", as: "about"
-#言語設定 
+#言語設定
   get "/homes/language/:lang" => "homes#language"
   get "/users/mypage/:id" => "users#show", as: "mypage"
   resources :users, only: [:show, :edit, :update]

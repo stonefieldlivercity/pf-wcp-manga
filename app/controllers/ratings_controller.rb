@@ -22,8 +22,8 @@ class RatingsController < ApplicationController
         flash[:alert] = t('notice.alredy_taken')
       end
     else
-      flash.now[:alert] = t('notice.not_saved')
-      render 'new'
+      redirect_to new_book_rating_path
+      flash[:alert] = t('notice.not_saved')
     end
   end
 # 評価削除機能
