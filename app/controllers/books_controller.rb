@@ -30,11 +30,7 @@ class BooksController < ApplicationController
 # マンガ詳細ページ
   def show
     @book = Book.find(params[:id])
-    if user_signed_in?
-      @rating = Rating.find_by(book_id: params[:id], user_id: current_user.id)
-    else
-      @rating = Rating.find_by(book_id: params[:id])
-    end
+    @rating = Rating.find_by(book_id: params[:id])
   end
 #検索結果ページ
   def result
